@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sign_up.css">
+
+    <title>회원가입</title>
+</head>
+<body style="overflow-y: hidden">
+    <section>
+        <div id="border">
+            <h1>회원가입</h1>
+            <form action="">
+                <div class="textBox">
+                    <input type="text" id="id" name="id" size="100" placeholder="아이디" required
+                    oninvalid="this.setCustomValidity('아이디를 입력해주세요.')"
+                    oninput="this.setCustomValidity('')">
+                </div>
+                <div class="textBox">
+                    <input type="password" id="memberPassword" name="memberPassword" size="100" placeholder="비밀번호"required
+                           oninvalid="this.setCustomValidity('비밀번호를 입력해주세요.')"
+                           oninput="this.setCustomValidity('')">
+                </div>
+                <div class="textBox">
+                    <input type="password" id="rpw" placeholder="비밀번호 재확인" size="100" required
+                           oninvalid="this.setCustomValidity('비밀번호 확인을 해주세요.')"
+                           oninput="this.setCustomValidity('')">
+                </div>
+                <div class="textBox">
+                    <input type="text" id="memberName" name="memberName" placeholder="이름" size="100" required
+                           oninvalid="this.setCustomValidity('이름을 입력해주세요.')"
+                           oninput="this.setCustomValidity('')">
+                </div>
+                <div class="gender">
+                    <input type="radio" id="m" name="memberGender" checked><label for="m">남자</label>
+                    <input type="radio" id="f" name="memberGender"><label for="f">여자</label>
+                </div>
+                <div class="textBox">
+                    <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일" size="100" required
+                           oninvalid="this.setCustomValidity('이메일을 입력해주세요.')"
+                           oninput="this.setCustomValidity('')">
+                </div>
+                <div class="textBox">
+                    <input type="text" id="PhoneNumber" name="PhoneNumber" placeholder="전화번호" size="20" required
+                           oninvalid="this.setCustomValidity('전화번호를 입력해주세요.')"
+                           oninput="this.setCustomValidity('')">
+                </div>
+                <div class="but">
+                    <input type="submit" id="signBut" value="가입하기">
+                </div>
+            </form>
+        </div>
+    </section>
+
+<!--    <script src ="sign_up.js"></script>-->
+</body>
+</html>
