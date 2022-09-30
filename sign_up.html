@@ -44,6 +44,8 @@
                     <label for="rpw" id="rpw-text">비밀번호 재확인</label>
                 </div>
 
+                <div id="message">*비밀번호가 일치하지 않습니다.</div>
+
                 <div class="textBox">
                     <input type="text" id="PhoneNumber" name="PhoneNumber" size="20" required
                            oninvalid="this.setCustomValidity('전화번호를 입력해주세요.')" oninput="this.setCustomValidity('')">
@@ -51,7 +53,8 @@
                 </div>
 
                 <div class="textBox">
-                    <input type="email" id="memberEmail" name="memberEmail" size="100" required>
+
+                    <input type="text" id="memberEmail" name="memberEmail" size="100" required>
                     <label for="memberEmail" id="mail-text">이메일</label>
                 </div>
 
@@ -75,6 +78,13 @@
         let number = $('#PhoneNumber');
         let mail = $('#memberEmail');
         let btu = $('#signBut');
+
+
+        if ($(pw).value != $(rpw).value) {
+            document.getElementById("message2").style.display = "block";
+        } else {
+            document.getElementById("message2").style.display = "none";
+        }
 
         $(btu).on('click', function () {
             if ($(name).val() == "") {
