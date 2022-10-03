@@ -11,7 +11,22 @@
   </style>
 </head>
 <body>
-    <p id="a"> 안녕</p>
-    <p id="b">하ㅣ세요</p>
+    <form>
+        <input type="text" id="text" required>
+        <input type="submit" value="클릭" onclick="btu();">
+    </form>
+
+    <script>
+        function btu(){
+            var a=document.getElementById('text');
+            if(a.value!=="aa"){
+                a.setCustomValidity('aa아님');
+            }
+            if(a.value=="aa") {
+                a.setCustomValidity('aa임');
+            }
+
+        };
+    </script>
 </body>
 </html>

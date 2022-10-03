@@ -19,7 +19,7 @@
     <section>
         <div id="border">
             <h1>회원가입</h1>
-            <form action="">
+            <form action="" onsubmit="return signupForm();">
                 <div class="textBox">
                     <input type="text" id="memberName" name="memberName" size="100" required
                            oninvalid="this.setCustomValidity('이름을 입력해주세요.')" oninput="this.setCustomValidity('')">
@@ -39,12 +39,11 @@
                 </div>
 
                 <div class="textBox">
-                    <input type="password" id="rpw" size="100" required
-                           oninvalid="this.setCustomValidity('비밀번호 확인을 해주세요.')" oninput="this.setCustomValidity('')">
+                    <input type="password" id="rpw" name="rePassword" size="100" required="true">
+<!--                           oninvalid="this.setCustomValidity('비밀번호 확인을 해주세요.')" oninput="this.setCustomValidity('')">-->
                     <label for="rpw" id="rpw-text">비밀번호 재확인</label>
+                    <div id="message">*비밀번호가 일치하지 않습니다.</div>
                 </div>
-
-                <div id="message">*비밀번호가 일치하지 않습니다.</div>
 
                 <div class="textBox">
                     <input type="text" id="PhoneNumber" name="PhoneNumber" size="20" required
@@ -70,55 +69,6 @@
         </div>
     </section>
 
-    <script>
-        let name = $('#memberName');
-        let id = $('#id');
-        let pw = $('#memberPassword');
-        let rpw = $('#rpw');
-        let number = $('#PhoneNumber');
-        let mail = $('#memberEmail');
-        let btu = $('#signBut');
-
-
-        if ($(pw).value != $(rpw).value) {
-            document.getElementById("message2").style.display = "block";
-        } else {
-            document.getElementById("message2").style.display = "none";
-        }
-
-        $(btu).on('click', function () {
-            if ($(name).val() == "") {
-                $(name).next('label').addClass('warning');
-                setTimeout(function () {
-                    $('label').removeClass('warning');
-                }, 1500);
-            } else if($(id).val() == "") {
-                $(id).next('label').addClass('warning');
-                setTimeout(function () {
-                    $('label').removeClass('warning');
-                }, 1500);
-            } else if($(pw).val() == "") {
-                $(pw).next('label').addClass('warning');
-                setTimeout(function () {
-                    $('label').removeClass('warning');
-                }, 1500);
-            } else if($(rpw).val() == "") {
-                $(rpw).next('label').addClass('warning');
-                setTimeout(function () {
-                    $('label').removeClass('warning');
-                }, 1500);
-            } else if($(number).val() == "") {
-                $(number).next('label').addClass('warning');
-                setTimeout(function () {
-                    $('label').removeClass('warning');
-                }, 1500);
-            } else if($(mail).val() == "") {
-                $(mail).next('label').addClass('warning');
-                setTimeout(function () {
-                    $('label').removeClass('warning');
-                }, 1500);
-            }
-        });
-    </script>
+    <script src = "SignUp.js"></script>
 </body>
 </html>
