@@ -42,7 +42,7 @@
                     <input type="password" id="rpw" name="rePassword" size="100" required="true">
 <!--                           oninvalid="this.setCustomValidity('비밀번호 확인을 해주세요.')" oninput="this.setCustomValidity('')">-->
                     <label for="rpw" id="rpw-text">비밀번호 재확인</label>
-                    <div id="message">*비밀번호가 일치하지 않습니다.</div>
+                    <div class="message" id="pwMessage">*비밀번호가 일치하지 않습니다.</div>
                 </div>
 
                 <div class="textBox">
@@ -55,6 +55,7 @@
 
                     <input type="text" id="memberEmail" name="memberEmail" size="100" required>
                     <label for="memberEmail" id="mail-text">이메일</label>
+                    <div class="message" id="mailMessage">*이메일 형식으로 작성해주세요(ex. ab@aa.com)</div>
                 </div>
 
                 <div class="gender">

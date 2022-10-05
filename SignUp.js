@@ -36,18 +36,16 @@ function signupForm() {
         success = false;
     } else {
         document.getElementById("message").style.display = "none";
-        success = true;
     }
 
-    //이메일 '@'포함 확인
-    if(patten.test(mail) !== true){
-        mail.setCustomValidity('@가 포함되어있지 않습니다.');
-        success = false;
-    } else {
-        mail.setCustomValidity('');
-        success = true;
-    }
-
+    // //이메일 '@'포함 확인
+    // if(patten.test(mail) !== true){
+    //     mail.setCustomValidity('@가 포함되어있지 않습니다.');
+    //     success = false;
+    // } else {
+    //     mail.setCustomValidity('');
+    // }
+    //
     return success;
 
 }
