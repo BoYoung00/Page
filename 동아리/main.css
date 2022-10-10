@@ -1,0 +1,31 @@
+*{margin: 0; padding: 0;}
+
+body {
+    font-family: 'Jua', sans-serif;
+    font-size: 18px;
+}
+
+.navbar {
+    background-color: #948585;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+a {text-decoration: none; }
+
+li {list-style: none;}
+
+.center_menu {display: flex;}
+
+.center_menu li {padding: 10px 25px;}
+
+.center_menu li a {color: #ffffff;}
+
+
+.side_menu {display: flex;}
+
+.side_menu li {padding: 5px 10px;}
+
+.side_menu li a {color: #ffffff;}
