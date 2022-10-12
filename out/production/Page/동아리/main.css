@@ -1,0 +1,80 @@
+*{margin: 0; padding: 0;}
+
+body {
+    font-family: 'Jua', sans-serif;
+    font-size: 18px;
+}
+
+.navbar {
+    background-color: #948585;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+a {text-decoration: none; }
+
+li {list-style: none;}
+
+.center_menu {display: flex;}
+
+.center_menu li {padding: 10px 25px;}
+
+.center_menu li a {color: #ffffff;}
+
+
+.side_menu {display: flex;}
+
+.side_menu li {padding: 5px 10px;}
+
+.side_menu li a {color: #ffffff;}
+
+/*이미지 슬라이드*/
+section input[id*="slide"] {
+    display: none;
+}
+
+section .slidewrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+section .slidelist {
+    white-space: nowrap;;
+    font-size: 0;
+}
+
+section .slidelist li {
+    display: inline-block;;
+    vertical-align: middle;
+    width: 100%;
+    transition: all .5s;
+}
+
+section .slidelist li a {
+    display: block;
+    position: relative;
+}
+
+section .slidelist li a img {
+    width: 100%;
+}
+
+section .slidelist label {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    cursor: pointer;
+}
+
+section .slidelist .left {
+    left: 30px;
+}
+
+section .slidelist .right {
+    right: 30px;
+}
