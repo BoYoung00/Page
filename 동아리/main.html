@@ -37,34 +37,43 @@
 
     <section class="picture">
         <input type="radio" name="slide" id="slide1" checked>
-        <input type="radio" name="slide" id="slide2" checked>
-        <input type="radio" name="slide" id="slide3" checked>
+        <input type="radio" name="slide" id="slide2">
+        <input type="radio" name="slide" id="slide3">
 
         <div class="slidewrap">
             <ul class="slidelist">
                 <li>
                     <a>
-                        <label for="slide3" class="left"></label>
                         <img src="../img/slide/슬라이드3.jpg" alt="이미지">
-                        <label for="slide2" class="right"></label>
                     </a>
                 </li>
 
                 <li>
                     <a>
-                        <label for="slide1" class="left"></label>
                         <img src="../img/slide/슬라이드2.jpg" alt="이미지">
-                        <label for="slide3" class="right"></label>
                     </a>
                 </li>
 
                 <li>
                     <a>
-                        <label for="slide2" class="left"></label>
                         <img src="../img/slide/슬라이드1.jpg" alt="이미지">
-                        <label for="slide1" class="right"></label>
                     </a>
                 </li>
+
+                <div class="slidControl">
+                    <div class="control1">
+                        <label for="slide3" class="left"></label>
+                        <label for="slide2" class="right"></label>
+                    </div>
+                    <div class="control2">
+                        <label for="slide1" class="left"></label>
+                        <label for="slide3" class="right"></label>
+                    </div>
+                    <div class="control3">
+                        <label for="slide2" class="left"></label>
+                        <label for="slide1" class="right"></label>
+                    </div>
+                </div>
 
             </ul>
         </div>
