@@ -1,0 +1,26 @@
+*{
+    font-family: 'Jua', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0; padding: 0;
+    color: #3a3939;
+}
+
+#header {
+    position: absolute;
+    background: #e9eff6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+#header #center_menu {
+    display: flex;
+}
+
+#header #center_menu li {
+    padding-right: 20px;
+}
