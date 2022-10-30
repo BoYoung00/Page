@@ -18,21 +18,45 @@
 </head>
 <body>
     <div class="page_wrapper">
-        <header id="header">
-            <h1 id="logo"><a href="">Mbti</a></h1>
+        <div class="header_line">
+            <header id="header">
+                <h1 id="logo"><a href="">Mbti</a></h1>
 
-            <nav id="navbar">
-                <ul id="center_menu">
-                    <li><a href="#">홈</a></li>
-                    <li><a href="#">소개</a></li>
-                    <li><a href="#">회원가입</a></li>
-                </ul>
-            </nav>
-        </header>
+                <nav id="navbar">
+                    <ul id="center_menu">
+                        <li><a href="#">홈</a></li>
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">회원가입</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
 
-        <section class="picture">
+        <div class="main">
+            <div class="content">
+                <form action="" method="get">
+                    <div class="container">
+                        <div class="inquiry_box">
+                            <input name="inquiry" type="text" value="당신은 외향적입니까?" onfocus="this.blur(); ">
+                        </div>
 
-        </section>
+                        <div class="choice_box">
+                            <label><input type="radio" name="radio" id="o" value="o">O</label>
+                            <label><input type="radio" name="radio" id="x" value="x">X</label>
+                        </div>
+
+                        <div class="button_box">
+                            <table>
+                                <tr>
+                                <td><input type="button" class="but" id="previous" value="이전"></td>
+                                <td><input type="button" class="but" id="next" value="다음" ></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
 
         <footer class="information">
