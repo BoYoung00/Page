@@ -17,51 +17,76 @@
     <title>Mbti Main</title>
 </head>
 <body>
-    <div class="page_wrapper">
-        <div class="header_line">
-            <header id="header">
-                <h1 id="logo"><a href="">Mbti</a></h1>
+<!--    헤더-->
+    <div class="header_line">
+        <header id="header">
+<!--            로고-->
+            <h1 id="logo"><a href="">Mbti</a></h1>
 
-                <nav id="navbar">
-                    <ul id="center_menu">
-                        <li><a href="#">홈</a></li>
-                        <li><a href="#">소개</a></li>
-                        <li><a href="#">회원가입</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-
-        <div class="main">
-            <div class="content">
-                <form action="" method="get">
-                    <div class="container">
-                        <div class="inquiry_box">
-                            <input name="inquiry" type="text" value="당신은 외향적입니까?" onfocus="this.blur(); ">
-                        </div>
-
-                        <div class="choice_box">
-                            <label><input type="radio" name="radio" id="o" value="o">O</label>
-                            <label><input type="radio" name="radio" id="x" value="x">X</label>
-                        </div>
-
-                        <div class="button_box">
-                            <table>
-                                <tr>
-                                <td><input type="button" class="but" id="previous" value="이전"></td>
-                                <td><input type="button" class="but" id="next" value="다음" ></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-        <footer class="information">
-
-        </footer>
+<!--            메뉴-->
+            <nav id="navbar">
+                <ul id="centerMenu">
+                    <li><a href="">홈</a></li>
+                    <li><a href="#">소개</a></li>
+                    <li><a href="sign_up.html">회원가입</a></li>
+                </ul>
+            </nav>
+        </header>
     </div>
+
+<!--메인-->
+    <section class="main">
+
+<!--        첫번째 페이지 (인사말, 로딩화면)-->
+        <section id="loding">
+            <div class="message_box">
+                <p>어서오세요,</p>
+                <p>당신의 <span>성격유형</span>을</p>
+                <p>검사해 보세요.</p>
+            </div>
+<!--            검사시작 버튼-->
+            <div class="start_button_box">
+                <a href="#" class="start_button" onclick="teststart();">검사 시작</a>
+            </div>
+        </section>
+
+<!--        두번째 페이지(검사 질문 페이지, 메인)-->
+        <section id="content">
+            <form action="" method="get">
+                <section class="container">
+<!--                    질문-->
+                    <div class="inquiry_box">
+                        <input name="inquiry" type="text" value="당신은 외향적입니까?" onfocus="this.blur(); ">
+                    </div>
+<!--                    ox 선택-->
+                    <div class="choice_box">
+                        <label><input type="radio" name="radio" id="radio_o" value="o">O</label>
+                        <label><input type="radio" name="radio" id="radio_x" value="x">X</label>
+                    </div>
+<!--                    이전, 다음 버튼-->
+                    <div class="button_box">
+                        <table>
+                            <tr>
+                            <td><input type="button" class="but" id="previous" value="이전"></td>
+                            <td><input type="button" class="but" id="next" value="다음" ></td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </section>
+
+    <footer class="information">
+
+    </footer>
+
+    <script>
+        function teststart() {
+            document.getElementById("loding").style.display = "none";
+            document.getElementById("content").style.display = "flex";
+        }
+    </script>
+
 </body>
 </html>
