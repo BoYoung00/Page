@@ -6,6 +6,7 @@ body {
     height: 100vh;
 }
 
+/*네비바*/
 .navbar {
     background-color: #948585;
     display: flex;

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    var x;
+    function f() {
+      let y, x;
+
+      x=10; y=20;
+      z=30; //전역변수
+
+      this.x=100; //전역변수 호출 let은 불가능
+
+      // if (y==20) {
+      //   let b=40;
+      //   document.write("b1="+b+"<br>");
+      // }
+      document.write("x1="+x+"<br>");
+
+      const m=50;
+      document.write("m="+m+"<br>");
+      // m = m+1;
+    }
+
+    f();
+    document.write("x2="+x+"<br>");
+    // document.write("y="+y+"<br>");
+    // document.write("z="+z+"<br>");
+
+    let cite = "그녀는 \"안녕하세요\" 라고 말했다.";
+    document.write(cite);
+  </script>
+</body>
+</html>

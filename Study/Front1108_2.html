@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>산술연산</title>
+</head>
+<body>
+  <h3>산술연산</h3>
+  <hr>
+  <script>
+      let x = 32;
+      let total = 100 + x*2/4 - 3;
+      let div = x/10;
+      let mod = x % 2;
+
+      document.write("x = " + x + "<br>");
+      document.write("total = " + total + "<br>");
+      document.write("div = " + div + "<br>");
+      document.write("mod = " + mod + "<br>");
+      document.write("<br>");
+  </script>
+
+  <h3>대입 연산</h3>
+  <hr>
+  <script>
+      let a=3, b=3, c=3;
+      document.write("a=" + a);
+      document.write(" b=" + b);
+      document.write(" c=" + c + "<br>");
+
+      a += 3, b *= 3, c %= 2;
+      document.write("a += " + a + "<br>");
+      document.write("b *= " + b + "<br>");
+      document.write("c %= " + c);
+  </script>
+
+  <h3>식과 연산자</h3>
+  <hr>
+  <script>
+      let y=15
+      let res = (x>y)?x:y;
+      document.write("x=" + x + "<br>");
+      document.write("y=" + y + "<br>");
+      document.write("res=" + res + "<br>");
+  </script>
+
+</body>
+</html>

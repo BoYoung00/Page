@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    // let age;
+    // let birth = prompt("태어난 년도는?");
+    // birth = parseInt(birth);
+    //
+    // if (birth == null) {
+    //   document.write("년도가 입력되지 않았습니다.");
+    // } else {
+    //   age = 2023 - birth;
+    // }
+    //
+    // document.write("당신의 나이는 " + age + "살 입니다.");
+
+    let price = 0;
+    let f=prompt("과일을 입력해주세요");
+
+    switch (f) {
+      case "바나나":
+        price=2500; break;
+      case "사과":
+        price=2000; break;
+      case "체리":
+        price=1500; break;
+      default:
+        price=0;
+        document.write("해당하는 과일은 팔지 않습니다.");
+    }
+    document.write(f+"는 "+price+"원 입니다");
+  </script>
+
+</body>
+</html>
