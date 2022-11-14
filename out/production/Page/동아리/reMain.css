@@ -1,0 +1,120 @@
+*{margin: 0; padding: 0;}
+
+body {
+    font-family: 'Jua', sans-serif;
+    font-size: 18px;
+    height: 100vh;
+}
+
+/*네비바*/
+.navbar {
+    background-color: #948585;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+a {text-decoration: none; }
+
+li {list-style: none;}
+
+.center_menu {display: flex;}
+
+.center_menu li {padding: 10px 25px;}
+
+.center_menu li a {color: #ffffff;}
+
+
+.side_menu {display: flex;}
+
+.side_menu li {padding: 5px 10px;}
+
+.side_menu li a {color: #ffffff;}
+
+/*이미지 슬라이드*/
+.picture input[id*="slide"] {
+    display: none;
+}
+
+.picture .slidewrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.picture .slidelist {
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.picture .slidelist li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    transition: all .5s;
+}
+
+.picture .slidelist li a {
+    display: block;
+    position: relative;
+}
+
+.picture .slidelist li a img {
+    width: 100%;
+}
+
+.picture .slidewrap label {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    cursor: pointer;
+}
+
+.picture .slidelist .left {
+    left: 15px;
+    background: url("../img/slide/arrow_left.png") center center / 50% no-repeat;
+}
+
+.picture .slidelist .right {
+    right: 15px;
+    background: url("../img/slide/arrow_right.png") center center / 50% no-repeat;
+}
+.picture .slidelist [class*="slideControl"] label {display: none;}
+
+.picture .slidControl [class*="control"] {display: none;}
+.picture [id="slide1"]:checked ~ .slidewrap .control1 {display: block;}
+.picture [id="slide2"]:checked ~ .slidewrap .control2 {display: block;}
+.picture [id="slide3"]:checked ~ .slidewrap .control3 {display: block;}
+
+.picture [id="slide1"]:checked ~ .slidewrap .slidelist > li {transform: translateX(0%);}
+.picture [id="slide2"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-100%);}
+.picture [id="slide3"]:checked ~ .slidewrap .slidelist > li {transform: translateX(-200%);}
+
+/*이달의 상품*/
+.product {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.product .productList {
+    border: #3a3939 solid 1px;
+    width: 1000px; height: auto;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(150px, auto); /*auto : 몇 줄인지 모를 때, minmax : 최소 크기와 최대 크기 지정 */
+    grid-gap: 50px; /*셀 사이사이에 공간 주기*/
+}
+
+.productList .item {display: flex;}
+
+.productList .item img {
+    width: 100%; height: auto;
+
+}
+
