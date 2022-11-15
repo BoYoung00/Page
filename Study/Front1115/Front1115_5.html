@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let n = parseInt(prompt("0보다 큰 정수 입력"));
+    let i = 0, sum=0;
+
+    // while (i<=n) {
+    //   sum +=i;
+    //   i++;
+    // }
+
+    do {
+        console.log(i);
+
+        sum += i;
+        i++;
+    }while (i<=n);
+
+    document.write("0에서 " + n + "까지 합 : " + sum);
+  </script>
+</body>
+</html>

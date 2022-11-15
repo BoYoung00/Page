@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    let num1 = parseInt(prompt("첫번째 숫자를 입력하세요"));
+    let num2 = parseInt(prompt("두번째 숫자를 입력하세요"));
+
+    function f(num1, num2) {
+        let max = 0;
+        if (num1 > num2) {
+            max = num1;
+        }else if (num2 > num1) {
+            max = num2;
+        }else {
+            max = "두 수가 같음";
+        }
+        return max;
+    }
+    document.write("입력받은 두 수 = "+num1 +",&nbsp"+ num2+"<br>");
+    document.write("큰 수 = "+f(num1, num2));
+
+  </script>
+
+</body>
+</html>
