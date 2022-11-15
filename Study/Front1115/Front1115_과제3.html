@@ -13,8 +13,13 @@
   <script>
       let pw = prompt("암호를 대라");
 
-      if (pw === "you") {
-          document.write("통과!");
+      while (true) {
+          if (pw === "you") {
+              document.write("통과!");
+              break;
+          } else {
+              pw = prompt("암호를 대라");
+          }
       }
   </script>
 </body>
