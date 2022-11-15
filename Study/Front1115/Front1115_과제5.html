@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,10 +9,13 @@
 <hr>
     <script>
         let n = prompt("수식입력");
-        let num = eval(n);
 
-        document.write(n + " = " + num);
-
+        if (n !== null) {
+            let num = eval(n);
+            document.write(n + " = " + num);
+        } else if (n === null) {
+            document.write("입력된 식이 없습니다.")
+        }
     </script>
 </body>
 </html>

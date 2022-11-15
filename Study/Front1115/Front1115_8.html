@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let n = adder(24567,98374);
+    let m = minus(24567,98374);
+
+    document.write("24567 + 98374 = " + n + "<br>");
+    document.write("24567 - 98374 = " + m);
+
+    function adder(a, b) {
+      let sum;
+      sum = a+b;
+      return sum;
+    }
+
+    function minus(a, b) {
+      let minus;
+
+      if (a > b) {
+        minus = a-b;
+      }
+      if (a < b) {
+        minus = b-a;
+      }
+
+      return minus;
+    }
+  </script>
+</body>
+</html>
