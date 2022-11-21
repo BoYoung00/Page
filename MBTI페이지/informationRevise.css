@@ -112,12 +112,12 @@ body {
     width: 100%;
 }
 
-/*파란 박스 디자인*/
+/*바깥 박스 디자인*/
 .main #out_line {
     box-shadow: 5px 5px 10px #a0a6bb;
     background-color: #e9eff6;
     border-radius: 10px;
-    width: 700px; height: 500px;
+    width: 700px; height: 450px;
     margin: 20px auto;
     padding: 10px;
 }
@@ -137,39 +137,64 @@ body {
     margin: 10px;
 }
 
+/*컨텐츠 감싸고 있는 박스*/
+.main #container {
+    display: flex;
+}
 /*컨텐츠 박스*/
-.main #information_box1 {
+.main #information_box1,
+.main #information_box2
+{
     padding: 15px;
+    height: 80%;
 }
 
 /*컨텐츠 라인*/
-.main #information_box1 p {
-    margin-bottom: 10px;
+.main #container p {
+    margin-bottom: 15px;
 }
 
 /*행 제목*/
-.main #information_box1 span {
-    background: rgba(231, 234, 238, 0.75);
-    border-radius: 5px;
-    padding: 7px;
-    width: 70px;
+.main #container span {
+    font-size: 18px;
+    padding: 8px 4px;
+    width: 95px;
     display: inline-block;
-    text-align: center;
 }
 
-.main #information_box2 {
-    margin: 90px 0 0 460px;
+/*버튼 박스*/
+.main #information_box3 {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 10px 15px 0 15px;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    height: 20%;
+
 }
 
-#information_box2 #revise {
+.main #information_box3 a {
     background-color: #a0a6bb;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 60px;
     box-shadow: 2px 2px 5px #a0a6bb;
     border-radius: 5px;
     transition-duration: .05s;
 }
 
-#information_box2 #revise:hover {
+.main #information_box3 a:hover {
     background: #7a8094;
+}
+
+.main #container input {
+    padding: 6px;
+    width: 160px;
+    font-size: 18px;
+    /*border:none;*/
+    border-radius: 5px;
+}
+
+#mbti, #id {
+    background: rgba(231, 234, 238, 0.75);
 }
