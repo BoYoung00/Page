@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let array = [];
+    let array2 = []
+
+    for (let i = 1; i <= 5; i++) {
+      array.push(prompt(i+"번째 데이터 입력"));
+    }
+
+    document.write("입력된 수의 배열"+"<br>");
+    document.write(array+"<br>");
+
+    for (let j = array.length - 1; j >= 0; j--) {
+       array2.push(array[j]);
+    }
+
+    document.write("역순으로 재정렬된 배열"+"<br>");
+    document.write(array2);
+
+
+  </script>
+</body>
+</html>

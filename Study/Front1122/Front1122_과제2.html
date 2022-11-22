@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        let date = new Date();
+        let day = date.getDay();
+        let week = new Array('일','월','화','수','목','금','토','일');
+
+        if (day <= 6) {
+            document.body.style.backgroundColor = "gold";
+        }
+        else if (day > 6) {
+            document.body.style.backgroundColor = "pink";
+        }
+
+        document.write("오늘 : " + date.getDate() + "일, " + week[day] + "요일");
+    </script>
+</body>
+</html>

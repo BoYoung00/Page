@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    let today = new Date();
+    document.write("현재시간 : "+today+"<br>");
+    document.write("현재시간 : "+today.toLocaleString()+"<br>");
+
+    document.write("현재시간 : "+today.toLocaleTimeString()+"<br>");
+
+    document.write(today.getFullYear()+"<br>");
+    document.write(today.getMonth()+"<br>");
+    document.write(today.getDate()+"<br>");
+    document.write(today.getDay()+"<br>");
+    document.write(today.getHours()+"<br>");
+    document.write(today.getMinutes()+"<br>");
+    document.write(today.getSeconds()+"<br>");
+    document.write(today.getMilliseconds()+"<br>");
+
+    let next = new Date(2023,7,15,15,12,12);
+    document.write(next.toLocaleTimeString());
+  </script>
+</body>
+</html>

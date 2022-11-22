@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    function f() {
+      let arr = new Array(5);
+
+      for (let i = 0; i<5; i++) {
+        let num = parseInt(prompt((i+1)+"번째 숫자 입력"));
+        arr[i] = num;
+      }
+      document.write(arr + "<br>");
+
+      let sum = 0;
+      for (let i = 0; i<5; i++) {
+        sum = sum + arr[i];
+      }
+      document.write("배열의 합 : "+ sum);
+    }
+
+    function f1() {
+      let arr = new Array();
+
+      let i = 0;
+      while (true) {
+        let num = parseInt(prompt("숫자 입력"));
+
+        if (num == 0) {
+          break;
+        }
+        arr[i] = num;
+        i++;
+      }
+
+      document.write(arr + "<br>");
+
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+      }
+      document.write("배열의 합 : "+ sum);
+    }
+
+    f1();
+  </script>
+</body>
+</html>

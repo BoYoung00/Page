@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let today = new Date();
+
+        if (today.getSeconds() % 2 ==0) {
+            document.body.style.backgroundColor="violet";
+        }
+        else {
+            document.body.style.backgroundColor="lightskyblue";
+        }
+        document.write(today.getSeconds()+"초");
+    </script>
+</body>
+</html>

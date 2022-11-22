@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <script>
+    function yy(n) {
+      var m = parseInt(n);
+      if (isNaN(m) || m > 2023 || m <= 0) {
+        alert("잘 못된 입력입니다");
+        return;
+      }
+
+      if (m ==false)
+        alert("취소되었습니다.")
+
+      var year = m % 12;
+
+      if (year == 0)
+        document.write("원숭이띠");
+      else if (year == 1)
+        document.write("닭띠");
+      else if (year == 2)
+        document.write("개띠");
+      else if (year == 3)
+        document.write("돼지띠");
+      else if (year == 4)
+        document.write("쥐띠");
+      else if (year == 5)
+        document.write("소띠");
+      else if (year == 6)
+        document.write("범띠");
+      else if (year == 7)
+        document.write("토끼띠");
+      else if (year == 8)
+        document.write("용띠");
+      else if (year == 9)
+        document.write("뱀띠");
+      else if (year == 10)
+        document.write("말띠");
+      else if (year == 11)
+        document.write("양띠");
+    }
+  </script>
+</head>
+<body>
+  <script>
+    var n = prompt("년도 입력");
+    yy(n);
+  </script>
+
+</body>
+</html>
