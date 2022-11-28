@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+      * {padding: 0; margin: 0;}
+
+      canvas{background: #eee; display: block; margin: 0 auto;}
+    </style>
+    <title>벽돌깨기</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="480" height="320"></canvas>
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var x = canvas.width/2; //시작 기준점
+    var y = canvas.height-40;
+
+    var dx = 2; //움직이게 하기 위한 값
+    var dy = -2;
+
+    var ballRadius = 10; // 공 크기
+
+    //블록 정의
+    var paddleHeight = 10;
+    var paddleWidth = 75;
+    var paddleX = (canvas.width-paddleHeight)/2;
+
+    // 키보드 방향키
+    var rightPressed = false;
+    var leftPressed = false;
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+      ctx.fillStyle = "#0095DD";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function drawPaddle() {
+      ctx.beginPath();
+      ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+      ctx.fillStyle = "#0095DD";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function draw() {
+      // 캔버스 지우기
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // 공 그리기
+      drawBall();
+
+      // 벽에 부딛혔을 때 튕겨나가기
+      if (x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+      }
+      if (y + dy < ballRadius) {
+        dy = -dy;
+      } else if (y + dy > canvas.height-ballRadius ) {
+        if (x > paddleX && paddleX + paddleWidth) {
+          dy = -dy;
+        } else {
+          alert("GAME OVER");
+          document.location.reload();
+        }
+      }
+
+      x += dx;
+      y += dy;
+
+      //키보드 방향키 액션
+      if (rightPressed && paddleX < canvas.width-paddleWidth) {
+        paddleX += 7;
+      } else if(leftPressed && paddleX > 0) {
+        paddleX -=7;
+      }
+      drawPaddle();
+    }
+
+    function keyDownHandler(e) {
+      if (e.keyCode == 39) {
+        rightPressed = true;
+      } else if (e.keyCode == 37) {
+        leftPressed = true;
+      }
+    }
+
+    function keyUpHandler(e) {
+      if (e.keyCode == 39) {
+        rightPressed = false;
+      } else if (e.keyCode == 37) {
+        leftPressed = false;
+      }
+    }
+
+    setInterval(draw, 10);
+
+    // ctx.beginPath();
+    // ctx.rect(20, 40, 50, 50);
+    // ctx.fillStyle = "#FF0000";
+    // ctx.fill();
+    // ctx.closePath();
+    //
+    // ctx.beginPath();
+    // ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+    // ctx.fillStyle = "green";
+    // ctx.fill();
+    // ctx.closePath();
+    //
+    // ctx.beginPath();
+    // ctx.rect(160, 10, 100, 40);
+    // ctx.strokeStyle = "rgba(0,0,255,0.5)";
+    // ctx.stroke();
+    // ctx.closePath();
+
+  </script>
+</body>
+</html>
