@@ -81,16 +81,16 @@ body {
     box-shadow: 5px 5px 10px #a0a6bb;
     background-color: #e9eff6;
     border-radius: 10px;
-    width: 700px; height: 380px;
-    margin: 20px auto;
-    padding: 10px;
+    width: 35rem; height: 19rem;
+    margin: 1rem auto;
+    padding: .5rem;
 }
 
 /*안쪽 박스 디자인*/
 .main #in_line {
     background-color: #ffffff;
     border-radius: 10px;
-    width: 670px; height: 300px;
+    width: 33.5rem; height: 15rem;
     margin: 0 auto;
 }
 
@@ -98,7 +98,7 @@ body {
 .main #out_line h2 {
     text-align: center;
     width: 100%;
-    margin: 10px;
+    margin: .5rem;
 }
 
 /*컨텐츠 감싸고 있는 박스*/
@@ -109,26 +109,26 @@ body {
 .main #information_box1,
 .main #information_box2
 {
-    padding: 30px 20px;
+    padding: 1.5rem 1rem;
 }
 
 /*컨텐츠 라인*/
 .main #container p {
-    margin-bottom: 15px;
+    margin-bottom: .75rem;
 }
 
 /*행 제목*/
 .main #container span {
-    font-size: 18px;
-    padding: 8px 4px;
-    width: 95px;
+    font-size: .9rem;
+    padding: .4rem .2rem;
+    width: 4.75rem;
     display: inline-block;
 }
 
 /*버튼 컨테이너*/
 .main #information_box3 {
     border: none;
-    margin: 0px 15px;
+    margin: 0px .75rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -140,11 +140,11 @@ body {
 .main #information_box3 a,
 .main #information_box3 input
 {
-    font-size: 20px;
+    font-size: 1rem;
     border: none;
     background-color: #a0a6bb;
     color: #fff;
-    padding: 12px 100px;
+    padding: .6rem 5rem;
     margin-top: 5px;
     box-shadow: 2px 2px 5px #a0a6bb;
     border-radius: 5px;
@@ -160,9 +160,9 @@ body {
 
 /*text박스 디자인*/
 .main #container input[type=text] {
-    padding: 6px;
-    width: 160px;
-    font-size: 18px;
+    padding: .3rem;
+    width: 8rem;
+    font-size: .9rem;
     border-radius: 5px;
 }
 
