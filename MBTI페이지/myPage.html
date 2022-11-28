@@ -36,25 +36,45 @@
 
 <!--메인-->
 <section class="main">
-<!--바깥 상자 (파란색)-->
+    <!--바깥 상자 (파란색)-->
     <section id="out_line">
         <h2>My Page</h2>
-<!--        안쪽 상자 (흰색)-->
+        <!--        안쪽 상자 (흰색)-->
         <section id="in_line">
-<!--            회원 정보-->
-            <div id="information_box1">
-                <p><span>성격유형</span>&nbsp;<a>ENFP</a></p>
-                <p><span>아이디</span>&nbsp;<a>admin1</a></p>
-                <p><span>이름</span>&nbsp;<a>ㅇㅇㅇ</a></p>
-                <p><span>생년월일</span>&nbsp;<a>xxxx.xx.xx</a></p>
-                <p><span>전화번호</span>&nbsp;<a>010-0000-0000</a></p>
+            <!--            회원 정보-->
+            <div id="information_box1" th:each="member:${MemberList}" >
+                <p><span>성격유형</span><a>ENFP</a></p>
+                <p><span>아이디</span><a th:text="${member.memberid}">admin1</a></p>
+                <p><span>이름</span><a th:text="${member.membername}">ㅇㅇㅇ</a></p>
+                <p><span>이메일</span><a th:text="${member.memberemail}">xxx@xxxx.xx</a></p>
+                <p><span>전화번호</span><a th:text="${member.phonenumber}">010-0000-0000</a></p>
             </div>
             <div id="information_box2">
-                <a href="informationRevise.html" id="revise">정보 수정하러 가기</a>
+                <a id="revise" onclick="popShow();">정보 수정하러 가기</a>
             </div>
         </section>
     </section>
+
 </section>
 
+<section id="popUp">
+    <form action="" method="post">
+    <div id="pwCheck">
+        <span>비밀번호 확인</span><a id="cancel" onclick="cancel();">X</a>
+        <p><input type="password" name="pw" required placeholder="비밀번호"></p>
+        <input type="submit" value="확인">
+    </div>
+    </form>
+</section>
+
+<script>
+    function popShow() {
+        document.getElementById("popUp").style.display = "flex";
+    }
+
+    function cancel() {
+        document.getElementById("popUp").style.display = "none";
+    }
+</script>
 </body>
 </html>
