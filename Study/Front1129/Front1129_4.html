@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+      function randInt() {
+        return Math.floor(Math.random()*9)+1;
+      }
+    </script>
+</head>
+<body>
+    <script>
+      let que = randInt() + " * " + randInt();
+      let user = prompt(que + "값은 얼마입니까?");
+
+      let ans = eval(que);
+      if (ans == user) {
+        document.write("정답! ");
+      } else {
+        document.write("오답! ");
+      }
+      document.write(que + " = " + ans);
+    </script>
+</body>
+</html>

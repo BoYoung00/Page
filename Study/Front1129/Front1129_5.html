@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <script>
+    // function product() {
+    //   return this.x * this.y;
+    // }
+    // function division() {
+    //   return this.x / this.y;
+    // }
+    // let calc = new Object();
+    // calc.x = 30;
+    // calc.y = 3;
+    // calc.product = product;
+    // calc.division = division;
+
+    function calc(x, y) {
+      this.x = x;
+      this.y = y;
+      this.product = function (){
+        return this.x * this.y;
+      }
+    }
+  </script>
+</head>
+<body>
+    <script>
+      // document.write("calc 객체 : x = "+calc.x+", y = "+calc.y+"<br>");
+      // document.write("x * y = "+calc.product()+"<br>");
+      // document.write("x / y = "+calc.division()+"<br>");
+
+      let first = new calc(30, 3);
+      let second = new calc(8, 12);
+      document.write(first.x + "*" + first.y + " = " + first.product()+"<br>");
+      document.write(second.x + "*"+second.y+" = "+ second.product()+"<br>");
+    </script>
+</body>
+</html>
