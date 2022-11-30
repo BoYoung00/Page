@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function Student(name, score) {
+      this.univ = "부천대";
+      this.name = name;
+      this.score = score;
+      this.getGrade = function () {
+        if (this.score > 80) return "A";
+        else if (this.score > 60) return "B";
+        else return "F";
+      }
+    }
+  </script>
+</head>
+<body>
+<script>
+  let k = new Student("기태", 85);
+  let m = new Student("재문", 55);
+  document.write(k.univ + ", " + k.name +"의 학점은 "+ k.getGrade() + "<br>");
+  document.write(m.univ + ", " + m.name +"의 학점은 "+ m.getGrade() + "<br>");
+</script>
+</body>
+</html>

@@ -6,8 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+        function randInt() {
+            return Math.floor(Math.random()*100)+1;
+        }
+    </script>
 </head>
 <body>
+    <script>
+        let array = [];
+        let array2 = [];
+        for (let i=0; i<10; i++) {
+            array.push(randInt());
+        }
+        document.write(array.join(", ") + "<br>");
+        document.write("오름차순 정렬 후 : " + "<br>")
 
+        document.write(array.sort().join(", "));
+    </script>
 </body>
 </html>
