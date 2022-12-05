@@ -15,14 +15,25 @@
 <body>
     <script>
         let array = [];
-        let array2 = [];
+
         for (let i=0; i<10; i++) {
             array.push(randInt());
         }
+
         document.write(array.join(", ") + "<br>");
         document.write("오름차순 정렬 후 : " + "<br>")
 
-        document.write(array.sort().join(", "));
+        for (let j =0; j < array.length-1; j++) {
+            for (let k = j+1; k < array.length; k++) {
+                if (array[j] > array[k]){
+                    let temp = array[j];
+                    array[j] = array[k];
+                    array[k] = temp;
+                }
+            }
+        }
+
+        document.write(array.join(", "));
     </script>
 </body>
 </html>

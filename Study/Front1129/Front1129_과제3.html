@@ -7,24 +7,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script>
-    function Student(name, score) {
-      this.univ = "부천대";
+    function Book(title, name, price) {
+      this.title = title;
       this.name = name;
-      this.score = score;
-      this.getGrade = function () {
-        if (this.score > 80) return "A";
-        else if (this.score > 60) return "B";
-        else return "F";
-      }
+      this.price = price;
     }
   </script>
 </head>
 <body>
 <script>
-  let k = new Student("기태", 85);
-  let m = new Student("재문", 55);
-  document.write(k.univ + ", " + k.name +"의 학점은 "+ k.getGrade() + "<br>");
-  document.write(m.univ + ", " + m.name +"의 학점은 "+ m.getGrade() + "<br>");
+  let books = {
+    book1: "",
+    book2: "",
+    book3: ""
+  }
+
+  for (let i = 0; i < 3; i++) {
+    let input = prompt("'책 제목, 저자, 가격'순으로 입력");
+    let infor = input.split(",");
+    books["book"+i] = new Book(infor[0], infor[1], infor[2]);
+    document.write("책 제목 : "+ books["book"+i].title +"<br>");
+    document.write("저자 : "+ books["book"+i].name +"<br>");
+    document.write("가격 : "+ books["book"+i].price +"<br>");
+    document.write("<hr>");
+  }
+
 </script>
 </body>
 </html>
