@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function user(name, cm, kg) {
+            this.name = name;
+            this.cm = cm;
+            this.kg = kg;
+        }
+
+        user.prototype.bmi = function () {
+            const bmi_value = this.kg / ((this.cm / 100) * (this.cm / 100));
+
+            if (bmi_value < 18.5) {
+                return "저체중";
+            } else if (bmi_value < 25) {
+                return "정상체중";
+            } else if (bmi_value < 30){
+                return "과체중";
+            } else if(bmi_value >= 30){
+                return "비만";
+            }
+        }
+
+        var user1_input = prompt("이름, 키, 몸무게 순으로 입력하세요. (예- 홍길동,180,90)");
+        var user1_array = user1_input.split(",");
+        var user1 = new user(user1_array[0], user1_array[1], user1_array[2]);
+        document.write(user1.name + "님은 " + user1.bmi() + "입니다." + "<br>");
+
+        var user2_input = prompt("이름, 키, 몸무게 순으로 입력하세요. (예- 홍길동,180,90)");
+        var user2_array = user2_input.split(",");
+        var user2 = new user(user2_array[0], user2_array[1], user2_array[2]);
+        document.write(user2.name + "님은 " + user2.bmi() + "입니다." + "<br>");
+
+        var user3_input = prompt("이름, 키, 몸무게 순으로 입력하세요. (예- 홍길동,180,90)");
+        var user3_array = user3_input.split(",");
+        var user3 = new user(user3_array[0], user3_array[1], user3_array[2]);
+        document.write(user3.name + "님은 " + user3.bmi() + "입니다." + "<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

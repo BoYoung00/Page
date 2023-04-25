@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function sum() {
+        //     var result = 0;
+
+        //     for (var i = 0; i < arguments.length; i++) {
+        //         var result = result + arguments[i];
+        //     }
+        //     return result;
+        // }
+
+        // while(true) {
+        //     var num = parseInt(prompt("숫자를 입력하세요. \n음수를 입력하면 숫자입력 종료!"));
+        //     var numArr = [];
+
+        //     if (num < 0) break;            
+            
+        //     numArr.push(num);
+
+        // }
+
+        // var SumResult = sum(numArr);
+
+        // document.write("입력된 숫자는 " + numArr + "\n합계는 " + SumResult);
+
+        var numArr = [];
+
+        function sum() {
+            var result = 0;
+            var i=0;
+            while(true) {
+                var num = parseInt(prompt("숫자를 입력하세요. \n음수를 입력하면 숫자입력 종료!"));
+
+                if (num < 0) break;  
+
+                numArr[i] = num;
+                i++;
+            }
+            for (let item of numArr) {
+                result += item;
+            }
+            return result;
+        }
+
+        var output = sum();
+        document.write("입력된 숫자는 " + numArr + "<br>");
+        document.write("합계는 " + output);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

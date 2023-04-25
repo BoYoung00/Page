@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        li:hover {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Web Programming</h2>
+    <input type="text" id="textBox">
+    <input type="button" value="추가" id="but">
+
+    <div>
+        <ul id="itemList"itemList></ul>
+    </div>
+
+    <script>
+        var but = document.getElementById("but");
+        but.addEventListener("click", newText);
+
+        function newText() {
+            var newItem = document.createElement("li");
+            var textBox = document.getElementById("textBox");
+            var text = document.createTextNode(textBox.value);
+            newItem.appendChild(text);
+
+            var list = document.getElementById("itemList");
+            list.appendChild(newItem);
+
+            textBox.value = "";
+
+            var items = document.getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                items[i].addEventListener("click", function() {
+                    if(this.parentNode) {
+                        this.parentNode.removeChild(this);
+                    }
+                });
+                
+            }
+        }
+
+        
+        // var textBox = document.getElementById("textBox");
+        // var but = document.getElementById("but");
+
+        // but.addEventListener("click", insert);
+
+        // function insert() {
+        //     var textVal = document.createTextNode(textBox.value);
+        //     var newUl = document.createElement("ul");
+        //     var newLi = document.createElement("li");
+        //     newLi.innerText = textVal;
+            
+        //     var newVal = newUl.appendChild(newLi);
+        //     document.body.appendChild(newVal);
+        // }
+
+        // var liText = document.getElementsByTagName("li");
+        // for (let i = 0; i < PText.length; i++) {
+        //     liText[i].addEventListener("click", deleteVal);
+        // }
+
+        // function deleteVal() {
+        //     var Parent = this.parentNode;
+        //     parent.remoceChiled(this);
+        // }
+
+    </script>
+</body>
+</html>

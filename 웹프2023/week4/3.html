@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let mars = new Date(2023,12-1,25);
+        let mars_T = mars.getTime();
+
+        let today = new Date();
+        let today_T = today.getTime();
+
+        let time = today.toLocaleString();
+
+        let day = Math.ceil((mars_T/(1000*60*60*24))-(today_T/(1000*60*60*24)));
+
+        document.write("오늘날짜 : " + time + "<br>");
+        document.write("크리스마스까지 " + day + "일 남았습니다.");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let rand_arr = new Array();
+        let i = 0;
+        
+        while(i<10) {
+            let temp = Math.floor(Math.random() * 100 + 1);
+
+            if(!sameNum(temp)) {
+                rand_arr.push(temp);
+                i++;
+            }
+        }
+
+        function sameNum(t) {
+            for (let i = 0; i < rand_arr.length; i++) {
+                if(t == rand_arr[i]) return true;
+            }
+            return false;
+        }
+
+        document.write(rand_arr + "<br>");
+        document.write("-----정렬 후-----<br>");
+
+        rand_arr.sort(function(a, b){
+            return a-b;
+        });
+
+        document.write(rand_arr + "<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

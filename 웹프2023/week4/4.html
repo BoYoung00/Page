@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            border: 1px solid black;
+            background-color: #b3b3b3;
+            padding: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>당첨자 발표</h1>
+
+    <script>
+        var peple = prompt("전체 응모자 수");
+
+        var num = Math.floor(Math.random() * peple + 1);
+            
+        document.write("전체 응모자 수 : " + peple + "명" + "<br>");
+        document.write("당첨자 : " + num+ "번");
+    </script>
+</body>
+</html>

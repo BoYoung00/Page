@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function display() {
+            let now = new Date();
+            let currentTime = now.toLocaleTimeString();
+            document.getElementById("cur").innerHTML = currentTime;
+       }
+
+       setInterval(display, 1000);
+            
+    </script>
+</head>
+<body>
+    <h1 id="cur"></h1>
+</body>
+</html>

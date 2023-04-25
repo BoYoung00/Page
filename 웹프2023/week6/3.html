@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       span {
+        margin: 2px;
+       }
+    </style>
+</head>
+<body>
+    <h3>에디오피아 게뎁</h3>
+
+    <p><img src="images/coffee-pink.jpg" id="main_img" width="500" height="350"></p>
+
+    <p>
+        <span onclick="changeImage1()"><img src="images/coffee-pink.jpg"  width="150" height="150"></span>
+        <span onclick="changeImage2()"><img src="images/coffee-blue.jpg" width="150" height="150"></span>
+        <span onclick="changeImage3()"><img src="images/coffee-gray.jpg" width="150" height="150"></span>
+    </p>
+
+    <script>
+        let img = ["coffee-pink.jpg", "coffee-blue.jpg", "coffee-gray.jpg"];
+        let imgTag = document.getElementById("main_img");
+
+        function changeImage1() {
+            let url = "images/" + img[0];
+            imgTag.setAttribute("src", url)
+        }
+
+        function changeImage2() {
+            let url = "images/" + img[1];
+            imgTag.setAttribute("src", url)
+        }
+
+        function changeImage3() {
+            let url = "images/" + img[2];
+            imgTag.setAttribute("src", url)
+        }
+    </script>
+</body>
+</html>

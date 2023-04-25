@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var pop = window.open("notice.html", "pop", "width=500, height=500");
+
+        var width = screen.availWidth // 스크린의 너비값
+        var height = screen.availHeight // 스크린의 높이값
+        pop.moveTo((width*0.5)-250,(height*0.5)-250);
+    </script>
+
+</head>
+<body>
+    <h2>팝업창을 화면 가운데 표시하기</h2>
+</body>
+</html>
