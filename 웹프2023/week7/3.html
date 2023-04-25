@@ -43,12 +43,14 @@
                 td2.innerText=n;
             } else {
                 td3.innerText = n;
-                if (td1.innerText == td2.innerText && td2.innerText == td3.innerText) {
-                    divMsg.innerText = "Success(click here to do again)";
-                } else {
-                    divMsg.innerText = "Fail(click here to do again)";
-                }
             }
+
+            if (td1.innerText == td2.innerText && td2.innerText == td3.innerText) {
+                divMsg.innerText = "Success(click here to do again)";
+            } else {
+                divMsg.innerText = "Fail(click here to do again)";
+            }
+
         }
 
         function reset() {
