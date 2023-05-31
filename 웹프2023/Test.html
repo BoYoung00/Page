@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px; height: 100px;
+            background-color: #6d71c0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+
+    <script>
+        $(function () {
+            $("body").on("ready", function () {
+                $("div").animate({left:150}, 1000, "slow");
+            });
+
+        });
+    </script>
+</body>
+</html>
