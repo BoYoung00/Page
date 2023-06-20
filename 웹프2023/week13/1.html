@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>텍스트 입력하기</h2>
+    <p>남은 글자수 : <span></span></p>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <script>
+        $(function() {
+            $("textarea").on("keyup", function() {
+                let con = $(this).val();
+                $("span").text(20 - con.length);
+
+                if (con.length > 20) {
+                    $(this).val(con.substring(0, 20));
+                    $("span").text('20글자초과!');
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>

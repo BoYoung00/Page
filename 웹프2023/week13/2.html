@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul {list-style: none;}
+        .container{height: 62px; background-color: black;}
+        .logo{float: left; color: white; padding: 20px;}
+        .outmenu{float: right;}
+        .outmenu>ul>li{float: left; width: 140px;}
+        a{text-decoration: none; color: white;
+        padding: 20px; display: block;}
+        a:hover {background-color: blueviolet;}
+        .dropdown{display: none;}
+        .dropdown>li{background-color: black; width: 140px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="logo">로고</div>
+        </div>
+    <div class="outmenu">
+        <ul>
+            <li>
+                <a href="#" class="menu">웹 강좌 ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">HTML/CSS</a></li>
+                    <li><a href="#">자바스크립트</a></li>
+                    <li><a href="#">제이쿼리</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="menu">커뮤니티 ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">공지 게시판</a></li>
+                    <li><a href="#">자유 게시판</a></li>
+                    <li><a href="#">Q&A 게시판</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="menu">이용 안내</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        $(function() {
+            $('.menu').on("click mouseenter", function(e) {
+                $(this).siblings(".dropdown").show();
+                $(".dropdown").not($(this).siblings()).hide(); //드롭다운
+                e.stopPropagation();
+            });
+            $("html").click(function() {
+                $(".dropdown").hide();
+            })
+        })
+    </script>
+</body>
+</html>

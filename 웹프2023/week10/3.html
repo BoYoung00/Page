@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <img src="10주차images/car_images/1.jpg" alt="차">
+    <input type="button" value="play" id="play">
+    <input type="button" value="stop" id="stop">
+
+    <script>
+        $(function() {
+            let setIn="";
+            $("#play").click(function() {
+                let i=1;
+                setIn = setInterval(function() {
+                    if (i > 60) i = 1;
+                    let imgSrc = "10주차images/car_images/"+i+".jpg"
+                    $("img").attr('src', imgSrc);
+                    i++;
+                }, 100);
+            });
+
+            $("#stop").click(function() {
+                clearInterval(setIn);
+            });
+        });
+    </script>
+</body>
+</html>

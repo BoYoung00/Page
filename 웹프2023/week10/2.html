@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 10%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="과일이름을 입력하세요.">
+    <h1>과일검색</h1>
+    <div>
+        <img src="10주차images/apple.png" alt="사과">
+        <img src="10주차images/banana.png" alt="바나나">
+        <img src="10주차images/grape.png" alt="포도">
+        <img src="10주차images/orange.png" alt="오렌지">
+        <img src="10주차images/strawberry.png" alt="딸기">
+    </div>
+
+    <script>
+        $(function() {
+            $(":text").keyup(function() {
+                let input = $(this).val();
+                $("img").filter(function() {
+                    let alt = $(this).attr("alt");
+                    $(this).toggle(alt.indexOf(input)>-1);
+                })
+            });
+        });
+    </script>
+    
+</body>
+</html>

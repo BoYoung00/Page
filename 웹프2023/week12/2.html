@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style>
+        dl {
+            width: 420px; 
+        }
+
+        dt {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: blueviolet;
+        }
+
+        dd {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <dl id="dl1">
+        <dt>제목1</dt>
+        <dd>내용1</dd>
+    </dl>
+    <dl id="dl2">
+        <dt>제목2</dt>
+        <dd>내용2</dd>
+    </dl>
+    <dl id="dl3">
+        <dt>제목3</dt>
+        <dd>내용3</dd>
+    </dl>
+    <dl id="dl4">
+        <dt>제목4</dt>
+        <dd>내용4</dd>
+    </dl>
+
+    <script>
+        $(function() {
+            $("dd").hide();
+            $("dt").click(function() {
+                $("dd").hide();
+                $(this).siblings().show();
+            });
+            $("dt").css("cursor", "pointer");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <style>
+        span { font-size: 20px; }
+        .but { font-size: 20px;}
+        .font { font-size: 14px;}
+    </style>
+</head>
+<body>
+    <div class="but">
+        <button class="minus">-</button>
+        <button class="originBtn">100%</button>
+        <button class="plus">+</button>
+    </div>
+    <div>font-size : <span id="font2">14px</span></div>
+    <div class="font">안녕하세요</div>
+
+    <script>
+        $(function() {
+            let fontSize = 14;
+            $(".but button").on("click", function() {
+                if($(this).hasClass("minus")) {
+                    if(fontSize<=8) return false;
+                    fontSize--;
+                } else if($(this).hasClass("plus")) {
+                    if(fontSize>=20) return false;
+                    fontSize++;
+                } else {
+                    fontSize=14;
+                }
+                $("font").css("font-size", fontSize);
+                $("span").text(fontSize + "px");
+            });
+        });
+    </script>
+</body>
+</html>

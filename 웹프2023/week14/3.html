@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+    <style>
+        .box {
+            height: 1000px; width: 100%;
+            font-size: 100px;
+            text-align: center;
+        }
+
+        .con1 { background-color: cornflowerblue;}
+
+        li {
+            list-style-type: none;
+            border: 1px solid black;
+            background-color: wheat;
+            padding: 5px 20px;
+        }
+        #menu {
+            position: fixed;
+            top: 500px; right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box con1">
+        1. Contents
+    </div>
+    <div class="box con2">
+        2. Contents
+    </div>
+    <div class="box con3">
+        3. Contents
+    </div>
+    <div class="box con4">
+        4. Contents
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li id="m1">메뉴1</li>
+            <li id="m2">메뉴2</li>
+            <li id="m3">메뉴3</li>
+            <li id="m4">메뉴4</li>
+        </ul>
+    </div>
+
+    <script>
+        $(function() {
+            // $("#menu").css("top", $(window).height()/2 - $("#menu").height()/2 + "px");
+            // $(window).scroll(function() {
+            //     let t = $(this).scrollTop() + ($(this).height()/2 - $("#menu").height()/2);
+            //     $("#menu").stop().animate({top:t}, 300);
+            // });
+            $("#menu #m1").click(function() {
+                $(window).scrollTop(0);
+            });
+            $("#menu #m2").click(function() {
+                $(window).scrollTop(1000);
+            });
+            $("#menu #m3").click(function() {
+                $(window).scrollTop(2000);
+            });
+            $("#menu #m4").click(function() {
+                $(window).scrollTop(3000);
+            });
+        });
+    </script>
+</body>
+</html>

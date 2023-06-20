@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        ul {list-style: none;}
+
+        li {
+            float: left;
+            margin-right: 20px;
+            width: 100px; height: 40px;
+        }
+
+        #li1 {background-image: url("12주차images/1.png");}
+        #li2 {background-image: url("12주차images/2.png");}
+        #li3 {background-image: url("12주차images/3.png");}
+        #li4 {background-image: url("12주차images/4.png");}
+        #li5 {background-image: url("12주차images/5.png");}
+        #li6 {background-image: url("12주차images/6.png");}
+
+        .sty {
+            background-position-y: -80px;
+            height: 80px;
+        }
+
+        .hoversty {
+            background-position-y: -40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li id="li1"></li>
+            <li id="li2"></li>
+            <li id="li3"></li>
+            <li id="li4"></li>
+            <li id="li5"></li>
+            <li id="li6"></li>
+        </ul>
+    </div>
+
+    <script>
+        $(function() {
+            $("ul").on("click", "li", function() {
+                $(this).removeClass("hoversty");
+                $(this).siblings().removeClass("sty");
+                $(this).addClass("sty");
+            });
+            $("li").hover(
+                function(){ $(this).addClass("hoversty"); },
+                function(){ $(this).removeClass("hoversty"); } 
+            );
+        });
+    </script>
+</body>
+</html>

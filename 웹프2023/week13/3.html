@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script><title>Document</title>
+    <style>
+        h1{text-align: center;}
+        img{float: left;}
+        .slideshow{ width:3000px; height: 426px; float: left;}
+        #container{
+            border: 1px solid black; width: 640px;
+            margin: 0 auto; overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<h1>슬라이드쇼</h1>
+<div id="container">
+    <div class="slideshow">
+        <img src="13주차images/tree-1.jpg" alt="" srcset="">
+        <img src="13주차images/tree-2.jpg" alt="" srcset="">
+        <img src="13주차images/tree-3.jpg" alt="" srcset="">
+        <img src="13주차images/tree-4.jpg" alt="" srcset="">
+    </div>
+</div>
+
+<script>
+    $(function(){
+        function s() {
+            $('.slideshow').animate({'margin-left':'-640px'}, 1000, 'linear', function () {
+                $(".slideshow img:first-child").insertAfter(".slideshow img:last-child");
+                $(".slideshow").css({ "margin-left": 0 });
+            });
+        };
+        setInterval(s, 2500);
+    });
+</script>
+</body>
+</html>

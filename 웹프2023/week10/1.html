@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <img src="10주차images/rollover_images/menu01_off.png" class="img">
+    <img src="10주차images/rollover_images/menu02_off.png" class="img">
+    <img src="10주차images/rollover_images/menu03_off.png" class="img">
+
+    <script>
+        $(function() {
+            $(".img").hover(
+            function() {
+                let index = $(".img").index($(this));
+                let i = "10주차images/rollover_images/menu0" + (index+1) + "_on.png";
+                $(this).attr("src", i);
+            },
+            function() {
+                let index = $(".img").index($(this));
+                let i = "10주차images/rollover_images/menu0" + (index+1) + "_off.png";
+                $(this).attr("src", i);
+            })
+            // $(".img").each(function() {
+            //     let img_off = $(this).attr('src');
+            //     let img_on = img_off.replace('off', 'on');
+
+            //     $(this).hover(
+            //         function() { $(this).attr('src', img_on); },
+            //         function() { $(this).attr('src', img_off); }
+            //     )
+            // })
+        });
+        
+    </script>
+</body>
+</html>

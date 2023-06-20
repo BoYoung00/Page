@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+
+        #box {
+            border: 1px solid black;
+            width: 430px; height: 732px;
+            overflow: scroll;
+            margin: 50px;
+        }
+
+        #city {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="11주차images/panorama.jpg" alt="도시" id="city">
+    </div>
+
+    <script>
+        $(function() {
+            var endX = $("#city").innerWidth();
+            var move = $("#city").scrollLeft();
+            var reverse = false;
+            
+            setInterval(function() {
+                if(!reverse) {
+                    if(move >= endX-430) {
+                        reverse=true;
+                    }
+                    move +=5;
+                    $("#box").scrollLeft(move);
+                } else {
+                    if(move <= 0) {
+                        reverse=false;
+                    }
+                    move -=5;
+                    $("#box").scrollLeft(move);
+                }
+            }, 10);
+
+        });
+    </script>
+</body>
+</html>

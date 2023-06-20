@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .select {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="text">
+    <span class="but">
+        <button class="app">추가</button>
+        <button class="update">수정</button>
+        <button class="del">삭제</button>
+        <button class="up">UP</button>
+        <button class="down">DOWN</button>
+    </span>
+
+    <ul>
+    </ul>
+
+    <script>
+        $(function() {
+            let selectMenu = null;
+            let tt = $("#text");
+            $(".app").on("click", function() {
+                $("ul").append("<li>" + tt.val() + "</li>");
+                $("#text").val("");
+            });
+            
+            $("ul").on("click", "li", function() {
+                if($(this).hasClass("select")) {
+                    $(this).removeClass("select");
+                    selectMenu = null;
+                } else {
+                    $(this).siblings().removeClass("select");
+                    $(this).addClass("select");
+                    selectMenu = $(this);
+                }
+            });
+            $(".del").click(function() {
+                if(selectMenu != null) {
+                    selectMenu.remove();
+                } else {
+                    alert("선택된 메뉴가 없습니다.");
+                }
+            });
+            $(".update").click(function() {
+                if(selectMenu != null) {
+                    selectMenu.text(tt.val());
+                } else {
+                    alert("선택된 메뉴가 없습니다.");
+                }
+                $("ul").val("");
+            });
+            $(".up").click(function() {
+                if(selectMenu != null) {
+                    let prevMenu = selectMenu.prev();
+                    prevMenu.before(selectMenu);
+                } else {
+                    alert("선택된 메뉴가 없습니다.");
+                }
+            });
+            $(".down").click(function() {
+                if(selectMenu != null) {
+                    let nextMenu = selectMenu.next();
+                    nextMenu.after(selectMenu);
+                } else {
+                    alert("선택된 메뉴가 없습니다.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
