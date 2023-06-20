@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $(function() {
+            let i = 1;
+            $(".btn").on("click", function() {
+                if($(this).html()=="다음"){
+                    if(i==8) i=0;
+                    i++;
+                }else{
+                    if(i==1) i=9;
+                    i--;
+                }
+                let imgUrl = "images/pic_"+ i +".jpg";
+                $("#photo img").attr("src", imgUrl);
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="btn_box">
+        <button class="btn">이전</button>
+        <button class="btn">다음</button>
+    </p>
+
+    <p id="photo">
+        <img src="images/pic_1.jpg" alt="이미지" width="800" height="600" >
+    </p>
+    
+</body>
+</html>
