@@ -29,6 +29,7 @@
         $(function() {
             let selectMenu = null;
             let tt = $("#text");
+
             $(".app").on("click", function() {
                 $("ul").append("<li>" + tt.val() + "</li>");
                 $("#text").val("");
@@ -44,6 +45,7 @@
                     selectMenu = $(this);
                 }
             });
+
             $(".del").click(function() {
                 if(selectMenu != null) {
                     selectMenu.remove();
@@ -51,6 +53,7 @@
                     alert("선택된 메뉴가 없습니다.");
                 }
             });
+
             $(".update").click(function() {
                 if(selectMenu != null) {
                     selectMenu.text(tt.val());
@@ -59,6 +62,7 @@
                 }
                 $("ul").val("");
             });
+
             $(".up").click(function() {
                 if(selectMenu != null) {
                     let prevMenu = selectMenu.prev();
@@ -67,6 +71,7 @@
                     alert("선택된 메뉴가 없습니다.");
                 }
             });
+
             $(".down").click(function() {
                 if(selectMenu != null) {
                     let nextMenu = selectMenu.next();

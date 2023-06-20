@@ -72,10 +72,8 @@
         $(function() {
             $('li').click(function() {
                 let tab = $(this).attr('data-tab');
-                $('ul .on').removeClass('on');
-				$('.pan').removeClass('on');
-				$(this).addClass('on');
-				$('#' + tab).addClass('on');
+                $('ul .on').removeClass('on'); $('.pan').removeClass('on');
+				$(this).addClass('on'); $('#' + tab).addClass('on');
             })
         })
     </script>

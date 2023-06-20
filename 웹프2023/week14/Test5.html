@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <style>
+    #m1{background-color: #c4c49f;}
+    #m2{background-color: #728c96;}
+    #m3{background-color: #7d9d7d;}
+    #m4{background-color: #8c728c;}
+    *{margin: 0; padding: 0;}
+    li{list-style-type: none;}
+    li a{text-decoration: none;  color: black;}
+    #menu{position: absolute; right: 0; width: 150px; background-color: white;}
+    #menu a{padding: 8px 0; border-bottom: 1px solid darkgray; display: block; text-align: center;}
+    .content{height: 1000px; font-size: 150px; text-align: center;}
+
+  </style>
+  <script>
+    $(function(){
+      $("#menu").css("top", $(window).height()/2 - $("#menu").height()/2 + "px");
+      $(window).scroll(function(){
+        let t = $(this).scrollTop() + ($(this).height()/2 - $("#menu").height()/2);
+        $("#menu").stop().animate({top:t}, 300);
+      });
+    });
+  </script>
+</head>
+<body>
+<div>
+  <ul id="menu">
+    <li><a href="#m1">메뉴1</a></li>
+    <li><a href="#m2">메뉴2</a></li>
+    <li><a href="#m3">메뉴3</a></li>
+    <li><a href="#m4">메뉴4</a></li>
+  </ul>
+  <div class="contents">
+    <div class="content" id="m1">1</div>
+    <div class="content" id="m2">2</div>
+    <div class="content" id="m3">3</div>
+    <div class="content" id="m4">4</div>
+  </div>
+</div>
+</body>
+</html>

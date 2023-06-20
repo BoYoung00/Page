@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <button>animate</button>
+    <button>delay</button>
+</p>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    $(function(){
+        $("button:first").click(function(){
+            $("div").each(function(index){
+                $(this).animate({left: 300}, "slow");
+            });
+        });
+
+        $("button:last").click(function(){
+            $("div").each(function(index){
+                $(this).delay(500).animate({left: 0}, "slow");
+            });
+        });
+    });
+</script>
+</body>
+</html>

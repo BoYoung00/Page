@@ -48,7 +48,7 @@
             $("dd").hide();
             $("dt").click(function() {
                 $("dd").hide();
-                $(this).siblings().show();
+                $(this).siblings().show("fast");
             });
             $("dt").css("cursor", "pointer");
         });

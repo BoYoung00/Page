@@ -30,19 +30,19 @@
 
     <script>
         $(function() {
-            var endX = $("#city").innerWidth();
+            var endX = $("#city").innerWidth() - 430;
             var move = $("#city").scrollLeft();
             var reverse = false;
             
             setInterval(function() {
-                if(!reverse) {
-                    if(move >= endX-430) {
+                if(!reverse) { // 오른쪽 끝까지 안 닿았다면
+                    if(move >= endX) { // 오른쪽 끝에 닿았다면
                         reverse=true;
                     }
                     move +=5;
                     $("#box").scrollLeft(move);
                 } else {
-                    if(move <= 0) {
+                    if(move <= 5) {
                         reverse=false;
                     }
                     move -=5;

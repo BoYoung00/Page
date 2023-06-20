@@ -30,7 +30,8 @@
     $(function(){
         function s() {
             $('.slideshow').animate({'margin-left':'-640px'}, 1000, 'linear', function () {
-                $(".slideshow img:first-child").insertAfter(".slideshow img:last-child");
+                $(".slideshow img:first").insertAfter(".slideshow img:last");
+                // $(".slideshow img:last").after($(".slideshow img:first")); // 위랑 똑같은 말
                 $(".slideshow").css({ "margin-left": 0 });
             });
         };

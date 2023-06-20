@@ -35,16 +35,16 @@
                 var move = $("#fish").position().left;
                 var reverse=false;
                 setInterval(function() {
-                    if(!reverse) {
-                        if(move >= endX-5) {
-                            reverse=true;
+                    if(!reverse) { // 거꾸로 있지 않고 제대로 있고
+                        if(move >= endX-5) {  // 물고기의 움직임이 오른쪽 끝까지 닿았다면
+                            reverse=true; // 거꾸로 있게 만듦
                             $("#fish").css("transform","scaleX(-1)");
                         }
                         move +=5;
                         $("#fish").css("left", move);
                     } else {
-                        if(move <= 5) {
-                            reverse=false;
+                        if(move <= 5) { // 물고기의 움직임이 왼쪽 끝까지 달았다면
+                            reverse=false; // 제대로 있게 만듦
                             $("#fish").css("transform","scaleX(1)")
                         }
                         move -=5;

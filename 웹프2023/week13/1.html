@@ -14,7 +14,7 @@
 
     <script>
         $(function() {
-            $("textarea").on("keyup", function() {
+            $("textarea").on("keydown", function() {
                 let con = $(this).val();
                 $("span").text(20 - con.length);
 
