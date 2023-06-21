@@ -21,7 +21,7 @@
   </style>
   <script>
     $(function(){
-      $("#menu").css("top", $(window).height()/2 - $("#menu").height()/2 + "px");
+      $("#menu").css("top", $(window).height()/2 - $("#menu").height()/2);
       $(window).scroll(function(){
         let t = $(this).scrollTop() + ($(this).height()/2 - $("#menu").height()/2);
         $("#menu").stop().animate({top:t}, 300);
