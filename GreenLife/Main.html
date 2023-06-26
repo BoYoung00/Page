@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <title>Green Life</title>
+
+    <style>
+        *{
+            padding: 0; margin: 0;
+            list-style: none;
+            text-decoration: none;
+            border-collapse: collapse;
+            color: black;
+        }
+
+        /*html{font-size: 20px;}*/
+
+        body {
+            font-size: 1rem;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        nav {
+            width: 100%; height: 8vh;
+        }
+
+        main {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        /*Green Life, 짧은 문구 (메인 상단) */
+        .spot {
+            width: 100%; height: 36vh;
+            background-color: #49D15B;
+        }
+
+        .spot #text1 {
+            font-size: 50px;
+            margin: 70px 0 20px -150px;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, left 1.5s ease-in-out;
+        }
+
+        .spot #text2 {
+            margin-left: -150px;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, left 1.5s ease-in-out;
+        }
+
+
+        /*취지, 목적 (메인 중앙)*/
+        #introduction {
+            width: 100%;
+            position: absolute;
+            top: 37vh;
+        }
+
+        #introduction > div{
+            width: 700px; height: 14vh;
+            background-color: #99FF33;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        /*메인 하단*/
+        #container {
+            background-color: #E6E6E6;
+            width: 100%; height: 46vh;
+        }
+
+        /*게시판, 검사, 쇼핑몰, 채팅 content*/
+        #content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        #content section {
+            border: 1px solid black;
+            width: 80px; height: 18vh;
+            padding: 20px; margin: 12vh 20px;
+        }
+
+        #content section ul{
+            border-top: 1px solid black;
+            padding-top: 20px;
+        }
+
+        #content section li{
+            font-size: 12px;
+        }
+
+        footer {
+            width: 100%; height: 10vh;
+            position: relative;
+            background-color: #d5d5d5;
+            bottom: 0;
+            font-size: 12px;
+        }
+
+        footer p:first-child {
+            padding: 5px;
+            float: right;
+        }
+
+        footer p:last-child {
+            padding: 50px 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>헤더</nav>
+    </header>
+
+    <main>
+<!--        상단-->
+        <section class="spot">
+            <p id="text1"> Green Life </p>
+            <p id="text2"> 어서오세요, 환경과 미래를 생각하는 Green Life 홈페이지에 오신 것을 환영합니다. </p>
+        </section>
+
+<!--        중앙-->
+        <section id="introduction">
+            <div>
+                <p>환경을 위한 웹 사이트입니다.</p>
+            </div>
+        </section>
+
+<!--        하단-->
+        <section id="container">
+            <div id="content">
+                <section>
+                    <i class="fi fi-rs-calendar-lines-pen fa-2x"></i>
+                    <p>게시판</p>
+                    <ul>
+                        <li><a href="#">게시판 기반의 건강한 삶 Tip</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <i class="fi fi-rr-clipboard-list-check fa-2x"></i>
+                    <p>심리 검사</p>
+                    <ul>
+                        <li><a href="#">우울증 <br> 심리 검사 <br> 자가진단</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <i class="fi fi-rr-shopping-basket fa-2x"></i>
+                    <p>쇼핑몰</p>
+                    <ul>
+                        <li><a href="#">No 플라스틱 제품 판매 <br>쇼핑몰</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <i class="fi fi-rs-comment-smile fa-2x"></i>
+                    <p>오픈 채팅</p>
+                    <ul>
+                        <li><a href="#">오픈 채팅</a></li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="#">이용약관</a>
+            <a href="#">&nbsp; 개인정보처리방침</a>
+        </p>
+        <p>
+            TEL. 010-xxxx-xxxx <br>
+            e-mail : aa@aaa.com
+        </p>
+    </footer>
+
+    <script>
+        $(function () {
+
+            function readyani() {
+                $("#text1").hide().fadeIn(300, "linear", function () {
+                    $("#text1").css("opacity", "1").animate({"margin-left" : 0}, 1000);
+                });
+                $("#text2").hide().fadeIn(1000, "linear", function () {
+                    $("#text2").css("opacity", "1").animate({"margin-left" : 0}, 1000);
+                });
+            }
+
+            readyani();
+        });
+    </script>
+</body>
+</html>
