@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* CSS for the animated text */
+    .animated-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .animated-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div id="page1" style="height: 100vh;">
+    <h1>First Page</h1>
+    <p>Scroll down to go to the next page. Scroll up to go back.</p>
+  </div>
+
+  <div id="page2" style="height: 100vh;">
+    <h1>Second Page</h1>
+    <p class="animated-text">Text that appears with animation.</p>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var currentPage = 1;
+
+      // Function to scroll down or up based on scroll direction
+      function scrollPage(direction) {
+        var currentPageOffset = $('#page' + currentPage).offset().top;
+
+        if (direction === 'down') {
+          if (currentPage < 2) {
+            currentPage++;
+            $('html, body').animate({ scrollTop: $('#page' + currentPage).offset().top }, 500);
+          }
+        } else if (direction === 'up') {
+          if (currentPage > 1) {
+            currentPage--;
+            $('html, body').animate({ scrollTop: $('#page' + currentPage).offset().top }, 500);
+          }
+        }
+      }
+
+      // Scroll event to trigger page scrolling
+      $(window).on('scroll', function() {
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var page2Offset = $('#page2').offset().top;
+
+        if (scrollTop + windowHeight >= page2Offset) {
+          scrollPage('down');
+        } else if (scrollTop <= 0) {
+          scrollPage('up');
+        }
+      });
+
+      // Animation effect to reveal the text
+      $(window).on('scroll', function() {
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var animatedText = $('.animated-text');
+
+        animatedText.each(function() {
+          var offsetTop = $(this).offset().top;
+
+          if (scrollTop + windowHeight >= offsetTop) {
+            $(this).addClass('show');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

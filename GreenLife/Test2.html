@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* 스타일링 예시 */
+        .page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        #page1 {
+            background-color: lightblue;
+        }
+        #page2 {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="page1" class="page">
+    <h1>첫 번째 페이지</h1>
+    <p>아래로 스크롤하면 다음 페이지로 이동합니다.</p>
+</div>
+
+<div id="page2" class="page">
+    <h1>두 번째 페이지</h1>
+    <p>위로 스크롤하면 이전 페이지로 이동합니다.</p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var currentPage = 1;
+
+        function scrollPage(direction) {
+            if (direction === 'down') {
+                currentPage++;
+                $('html, body').animate({ scrollTop: $('#page' + currentPage).offset().top }, 500);
+            } else if (direction === 'up') {
+                currentPage--;
+                $('html, body').animate({ scrollTop: $('#page' + currentPage).offset().top }, 500);
+            }
+        }
+
+        $(window).on('wheel', function(event) {
+            if (currentPage > 0 && currentPage < 3) {
+                if (event.originalEvent.deltaY > 0)
+                    scrollPage("down");
+                else
+                    scrollPage("up");
+            }
+        });
+
+        // let observer = new IntersectionObserver((e)=> {
+        //    e.forEach((page) => {
+        //        if (page.isIntersecting) {
+        //            page.target.style.opacity = 1;
+        //        } else {
+        //            page.target.style.opacity = 0;
+        //        }
+        //
+        //    });
+        // });
+        //
+        // let box = $(".page");
+        // observer.observe(box[0]);
+        // observer.observe(box[1]);
+
+    });
+
+</script>
+</body>
+</html>

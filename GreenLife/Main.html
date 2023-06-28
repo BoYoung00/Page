@@ -14,21 +14,21 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@250&display=swap" rel="stylesheet">
 
     <title>Green Life</title>
 
     <style>
-        *{
+        * {
             padding: 0; margin: 0;
             list-style: none;
             text-decoration: none;
             border-collapse: collapse;
-            color: black;
+            box-sizing: border-box;
+            text-transform: capitalize;
             font-family: 'Hahmlet', serif;
+            color: black;
         }
-
-        /*html{font-size: 20px;}*/
 
         body {
             font-size: 1rem;
@@ -37,60 +37,182 @@
             position: relative;
         }
 
-        nav {
-            width: 100%; height: 8vh;
+        html{font-size: 18px;}
+
+        header{
+            width: 100%; height: 12vh;
+            background: #e6e6e6;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+            padding: 10px 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 99;
         }
 
+        #logo {
+            cursor: pointer;
+        }
+
+        /*navi section*/
+        header nav > ul > li{
+            position: relative;
+            float: left;
+        }
+
+        header nav > ul > li > a{
+            font-size: 20px;
+            padding:20px;
+            color: #1c6726;
+            display: block;
+        }
+        header nav > ul > li > a::after{
+            content: '';
+            position: absolute;
+            left: 10px;
+            bottom: 0px;
+            width: 80%;
+            height: 2px;
+            background: darkgreen;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+        header nav > ul > li > a:hover::after{
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        /*dropdown Section*/
+        header nav > ul > li > ol{
+            list-style: none;
+        }
+        header nav > ul > li > ol > li > a{
+            text-align: center;
+            padding:10px;
+            display: block;
+            color: darkgreen;
+        }
+        header nav > ul > li > ol > li > a:hover{
+            background: transparent;
+            color: black;
+            border: 2px solid #1c6726;
+            border-radius: 6px;
+        }
+        .testSubmenu, .boardSubmenu{
+            display: none;
+        }
+
+        .boardSubmenu{
+            position: absolute;
+        }
+        .testSubmenu{
+            position: absolute;
+        }
+
+        #gnb > li:hover > a{
+            color: black;
+        }
+        #gnb > li:hover > .boardSubmenu{
+            display: block;
+        }
+        #gnb > li:hover > .boardSubmenu > a:hover{
+            color: black;
+        }
+        #gnb > li:hover > .testSubmenu{
+            display: block;
+        }
+        #gnb > li:hover > .testSubmenu > a:hover{
+            color: black;
+        }
+
+        /*login button*/
+        nav .btnLogin-popup {
+            width: 92px;
+            height: 66px;
+            background: transparent;
+            border: 2px solid;
+            outline: none;
+            border-radius: 6px;
+            font-size: 20px;
+            color: #1c6726;
+            text-align: center;
+            cursor: pointer;
+        }
+        nav .btnLogin-popup:hover {
+            color: #e6e6e6;
+            background: #1c6726;
+        }
+
+        /*메인 시작*/
         main {
             width: 100%;
             text-align: center;
             display: flex;
             flex-direction: column;
-
         }
 
         /*Green Life, 짧은 문구 (메인 상단) */
         .spot {
-            width: 100%; height: 36vh;
+            width: 100%; height: 34vh;
             background-image: url("MainImg.jpg");
             background-size: cover;
-            background-color: #49D15B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .spot #text1 {
             font-size: 50px;
             font-weight: bold;
-            margin: 70px 0 20px -150px;
+            margin: 60px 0 15px -150px;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+
+        }
+
+        .spot p {
+            width: fit-content;
+            background-color: rgba(0, 0, 0, 0);
         }
 
         .spot #text2 {
+            color: white;
             margin-left: -150px;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
         }
 
         /*취지, 목적 (메인 중앙)*/
-        #introduction {
-            width: 100%;
+        #introduction  {
+            width: 100%; height: 18vh;
             position: absolute;
-            top: 37vh;
+            top: 36vh;
+            overflow: hidden;
+            /*scroll-snap-type: y mandatory;*/
+            /*overflow-y: visible;*/
         }
 
         #introduction > div{
-            width: 700px; height: 14vh;
-            background-color: #49D15B;
+            /*scroll-snap-align: start;*/
+            width: 700px; height: 18vh;
+            background-color: #206a47;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: all 0.5s;
+        }
+
+        #introduction div > h2 {
+            color: white;
         }
 
         /*메인 하단*/
         #container {
             background-color: #E6E6E6;
-            width: 100%; height: 46vh;
+            width: 100%; height: 43vh;
         }
 
         /*게시판, 검사, 쇼핑몰, 채팅 content*/
@@ -98,26 +220,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px 0;
         }
 
         #content section {
             border: 1px solid black;
-            width: 80px; height: 18vh;
-            padding: 20px; margin: 12vh 20px;
+            width: 120px; height: 20vh;
+            padding: 20px; margin: 17vh 20px 0 20px;
         }
 
-        #content section ul{
-            border-top: 1px solid black;
-            padding-top: 20px;
+        #content section .menu-title{
+            border-bottom: 1px solid black;
+            margin-bottom: 10px;
         }
 
-        #content section li{
-            font-size: 12px;
+        #content section .menu-contents{
+            font-size: 14px;
+            /*line-height: 0%;*/
         }
 
         footer {
-            width: 100%; height: 10vh;
+            width: 100%; height: 11vh;
             position: relative;
             background-color: #d5d5d5;
             bottom: 0;
@@ -125,67 +247,96 @@
         }
 
         footer p:first-child {
-            padding: 5px;
+            padding: 10px;
             float: right;
         }
 
         footer p:last-child {
-            padding: 50px 0 0 10px;
+            position: absolute;
+            bottom: 10px; left: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>헤더</nav>
+        <img id="logo" src="logo_image.png" height="100px">
+        <nav>
+            <ul id="gnb">
+                <li><a href="#">BOARD</a>
+                    <ol class="boardSubmenu">
+                        <li><a href="#">BOARD</a></li>
+                        <li><a href="#">WRITING</a></li>
+                        <li><a href="#">ELSE</a></li>
+                    </ol>
+                </li>
+                <li><a href="#">TEST</a>
+                    <ol class="testSubmenu">
+                        <li><a href="#">TEST</a></li>
+                        <li><a href="#">RESULT</a></li>
+                        <li><a href="#">ELSE</a></li>
+                    </ol>
+                </li>
+                <li><a href="#">TALK</a></li>
+                <li><a href="#">SHOP</a></li>
+                <button class="btnLogin-popup">LOGIN</button>
+            </ul>
+        </nav>
     </header>
 
     <main>
 <!--        상단-->
         <section class="spot">
-            <p id="text1"> Green Life </p>
-            <p id="text2"> 어서오세요, 환경과 미래를 생각하는 Green Life 홈페이지에 오신 것을 환영합니다. </p>
+            <span id="text1"> Green Life </span>
+            <p><span id="text2"> 어서오세요, 환경과 미래를 생각하는 Green Life 홈페이지에 오신 것을 환영합니다. </span></p>
         </section>
 
 <!--        중앙-->
         <section id="introduction">
-            <div>
-                <p>환경을 위한 웹 사이트입니다.</p>
+            <div id="page1" class="page">
+                <h2>첫 번째 페이지</h2>
+                <p>페이지 설명</p>
+            </div>
+
+            <div id="page2" class="page">
+                <h2>두 번째 페이지</h2>
+                <p>페이지 설명</p>
             </div>
         </section>
 
 <!--        하단-->
         <section id="container">
             <div id="content">
-                <section>
-                    <i class="fi fi-rs-calendar-lines-pen fa-2x"></i>
-                    <p>게시판</p>
-                    <ul>
-                        <li><a href="#">게시판 기반의 건강한 삶 Tip</a></li>
-                    </ul>
+                <section id="label1">
+                    <a href="#">
+                        <i class="fi fi-rs-calendar-lines-pen fa-2x"></i>
+                        <p class="menu-title">게시판</p>
+                        <p class="menu-contents">게시판 기반의 건강한 삶 Tip</p>
+                    </a>
                 </section>
 
                 <section>
-                    <i class="fi fi-rr-clipboard-list-check fa-2x"></i>
-                    <p>심리 검사</p>
-                    <ul>
-                        <li><a href="#">우울증 <br> 심리 검사 <br> 자가진단</a></li>
-                    </ul>
+                    <a href="#">
+                        <i class="fi fi-rr-clipboard-list-check fa-2x"></i>
+                        <p class="menu-title">심리 검사</p>
+                        <p class="menu-contents">우울증 <br> 심리 검사 <br> 자가진단</p>
+                    </a>
                 </section>
 
                 <section>
-                    <i class="fi fi-rr-shopping-basket fa-2x"></i>
-                    <p>쇼핑몰</p>
-                    <ul>
-                        <li><a href="#">No 플라스틱 <br> 제품 판매 <br>쇼핑몰</a></li>
-                    </ul>
+                    <a href="#">
+                        <i class="fi fi-rr-shopping-basket fa-2x"></i>
+                        <p class="menu-title">쇼핑몰</p>
+                        <p class="menu-contents">No 플라스틱 <br> 제품 판매 <br>쇼핑몰</p>
+                    </a>
+
                 </section>
 
                 <section>
-                    <i class="fi fi-rs-comment-smile fa-2x"></i>
-                    <p>오픈 채팅</p>
-                    <ul>
-                        <li><a href="#">오픈 채팅</a></li>
-                    </ul>
+                    <a href="#">
+                        <i class="fi fi-rs-comment-smile fa-2x"></i>
+                        <p class="menu-title">오픈 채팅</p>
+                        <p class="menu-contents">오픈 채팅</p>
+                    </a>
                 </section>
             </div>
         </section>
@@ -203,18 +354,38 @@
     </footer>
 
     <script>
-        $(function () {
+        $(document).ready(function () {
+            // 로고 href
+            $("#logo").on("click", function() {
+                location.href = 'Main.html';
+            });
 
+            // Start 애니메이션
             function readyani() {
                 $("#text1").hide().fadeIn(300, "linear", function () {
                     $("#text1").css("opacity", "1").animate({"margin-left" : 0}, 1000);
                 });
-                $("#text2").hide().fadeIn(1000, "linear", function () {
+
+                $("#text2").hide().fadeIn(1500, "linear", function () {
                     $("#text2").css("opacity", "1").animate({"margin-left" : 0}, 1000);
+                    $(".spot p").css("background-color", "rgba(0, 0, 0, 0.5)");
                 });
             }
-
             readyani();
+
+            // 페이지 스크롤 이벤트
+            let page2 = $("#page2").height();
+            let scroll = $("#page1").height();
+            $(window).on('wheel', function (event) {
+                $("#introduction").stop(true);
+                if (event.originalEvent.deltaY > 0) {
+                    scroll = page2;
+                } else {
+                    scroll = 0;
+                }
+                $("#introduction").animate({scrollTop: scroll}, 400);
+
+            });
         });
     </script>
 </body>
