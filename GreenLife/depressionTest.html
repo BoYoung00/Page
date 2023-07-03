@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>우울증 자가 평가</title>
+        <style>
+            /* CSS 스타일은 이전 예시와 동일하게 유지합니다. */
+        </style>
+        <script>
+            window.onload = function() {
+                var submitButton = document.querySelector('button[type="submit"]');
+                submitButton.addEventListener('click', handleSubmit);
+
+                generateQuestions(); // 질문 생성 함수 호출
+            }
+
+            function generateQuestions() {
+                var questionsContainer = document.getElementById('questions-container');
+
+                var questions = [
+                    "지난 2주 동안, 슬픈 기분이 지속되었나요?",
+                    "흥미나 즐거움을 느끼는 데에 어려움이 있었나요?",
+                    "지난 2주 동안, 자신감이나 자부심에 변화가 있었나요?",
+                    "지난 2주 동안, 에너지나 활동 수준이 변화되었나요?",
+                    "지난 2주 동안, 무기력하거나 피곤함을 느꼈나요?",
+                    "식욕 변화나 체중 변화가 있었나요?",
+                    "수면에 어려움이 있었나요? 혹은 지나치게 잠에 들거나 자고 싶지 않을 때가 있었나요?",
+                    "집중력이나 결정력에 어려움이 있었나요?",
+                    "지난 2주 동안, 생각하거나 움직이는 속도가 느려진 것 같았나요?",
+                    "지난 2주 동안, 자살이나 죽음에 대한 생각이 있었나요?",
+                    "지난 2주 동안, 일상적인 활동에 대한 흥미나 기쁨을 느끼기 어려웠나요?",
+                    "지난 2주 동안, 낙담감이나 절망감을 느꼈나요?",
+                    "지난 2주 동안, 자신에 대한 부정적인 생각이 자주 들었나요?",
+                    "일상적인 활동에 대한 에너지가 없거나 부족했나요?"
+                ];
+
+                for (var i = 0; i < questions.length; i++) {
+                    var section = document.createElement('section');
+
+                    var h2 = document.createElement('h2');
+                    h2.textContent = '질문 ' + (i + 1);
+                    section.appendChild(h2);
+
+                    var p = document.createElement('p');
+                    p.textContent = questions[i];
+                    section.appendChild(p);
+
+                    var radio1 = createRadioButton('question' + (i + 1), '1', '1');
+                    section.appendChild(radio1);
+
+                    var radio2 = createRadioButton('question' + (i + 1), '2', '2');
+                    section.appendChild(radio2);
+
+                    var radio3 = createRadioButton('question' + (i + 1), '3', '3');
+                    section.appendChild(radio3);
+
+                    questionsContainer.appendChild(section);
+                }
+            }
+
+            function createRadioButton(name, value, label) {
+                var radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = name;
+                radio.value = value;
+
+                var span = document.createElement('span');
+                span.textContent = label;
+
+                var labelElement = document.createElement('label');
+                labelElement.appendChild(radio);
+                labelElement.appendChild(span);
+
+                return labelElement;
+            }
+
+            function handleSubmit(event) {
+                event.preventDefault();
+
+                var answers = document.querySelectorAll('input[type="radio"]:checked');
+                var score = 0;
+                for (var i = 0; i < answers.length; i++) {
+                    score += parseInt(answers[i].value);
+                }
+
+                var result;
+                if (score <= 10) {
+                    result = "우울증 가능성이 낮습니다.";
+                } else if (score <= 20) {
+                    result = "약한 우울증 가능성이 있을 수 있습니다.";
+                } else {
+                    result = "우울증 가능성이 높습니다. 전문가와 상담을 고려해 보세요.";
+                }
+
+                var resultDiv = document.createElement('div');
+                resultDiv.textContent = "검사 결과: " + result;
+                var main = document.querySelector('main');
+                main.appendChild(resultDiv);
+            }
+        </script>
+    </head>
+<body>
+<header>
+    <h1>우울증 자가 평가</h1>
+</header>
+<main>
+    <div id="questions-container"></div>
+    <footer>
+        <button type="submit">제출</button>
+    </footer>
+</main>
+</body>
+</html>
