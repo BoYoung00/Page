@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>GreenLife-우울증 검사</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@250&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0; margin: 0;
+            list-style: none;
+            text-decoration: none;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            font-family: 'Hahmlet', serif;
+            color: black;
+        }
+
+        body {
+            font-size: 1rem;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        html{font-size: 18px;}
+
+        header {
+            width: 100%; height: 15vh;
+            background: #e6e6e6;
+        }
+
+        main {
+            width: 100%; height: 75vh;
+            background-color: #E6E6E6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spot {
+            width: 800px; height: 100%;
+            background-color: white;
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        /*질문, 번호*/
+        .question_box {
+            margin: 10px;
+
+        }
+
+        .question_box > p {
+            padding: 10px 0 20px 0;
+            /*background-color: #7d9d7d;*/
+        }
+
+        .animate-question {
+            animation: fade-in 0.5s ease-in-out;
+        }
+
+        /*라디오 버튼 none*/
+        .choice_box input[id*="radio"] {
+            display: none;
+        }
+
+        /*ox*/
+        .choice_box {
+            font-size: 110px;
+            margin: 0 50px 0 50px;
+            border-top: 1px solid black;
+            /*드래그 방지*/
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none
+        }
+
+        .choice_box label {
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .choice_box label:hover {
+            color: #206a47;
+        }
+
+        footer {
+            width: 100%; height: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <section class="spot">
+            <form action="" method="get">
+                <!--                질문 번호-->
+                <div class="question_box">
+                    <h1>1</h1>
+                    <p>슬픈 기분이 지속되었나요?</p>
+                </div>
+                <div class="choice_box">
+                    <!--                    ox 선택-->
+                    <label><input type="radio" name="radio" id="radio_o" value="o">O</label>
+                    <label><input type="radio" name="radio" id="radio_x" value="x">X</label>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        $(function () {
+            let questionsContainer = $(".question_box > p"); // 질문
+            let quesionNum = $(".question_box > h1"); // 질문 번호
+            let index = 0; // questions 인덱스
+            let score = 0; // 우울증 점수
+
+            const questions = [
+                "슬픈 기분이 지속되었나요?",
+                "흥미나 즐거움을 느끼는 데에 어려움이 있었나요?",
+                "자신감이나 자부심에 변화가 있었나요?",
+                "에너지나 활동 수준이 변화되었나요?",
+                "무기력하거나 피곤함을 느꼈나요?",
+                "식욕 변화나 체중 변화가 있었나요?",
+                "수면에 어려움이 있었나요? 혹은 지나치게 잠에 들거나 자고 싶지 않을 때가 있었나요?",
+                "집중력이나 결정력에 어려움이 있었나요?",
+                "생각하거나 움직이는 속도가 느려진 것 같았나요?",
+                "자살이나 죽음에 대한 생각이 있었나요?",
+                "일상적인 활동에 대한 흥미나 기쁨을 느끼기 어려웠나요?",
+                "낙담감이나 절망감을 느꼈나요?",
+                "자신에 대한 부정적인 생각이 자주 들었나요?",
+                "일상적인 활동에 대한 에너지가 없거나 부족했나요?",
+                "자꾸 눈물이 나나요?"
+            ];
+
+            $("input[type=radio]").on("click", function() {
+                index += 1;
+                // O를 체크하면 점수 추가
+                if($("#radio_o").is(":checked")) {
+                    score += 1;
+                }
+
+                // 질문 출력문
+                if (index < questions.length) {
+                    quesionNum.text(index+1);
+                    questionsContainer.text(questions[index]);
+                } else
+                    alert(score)
+
+                $(".question_box:not(:animated)").hide().fadeIn(500, "linear");
+            });
+
+        });
+    </script>
+</body>
+</html>
