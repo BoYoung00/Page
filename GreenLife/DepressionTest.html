@@ -23,7 +23,6 @@
             box-sizing: border-box;
             text-transform: capitalize;
             font-family: 'Hahmlet', serif;
-            color: black;
         }
 
         body {
@@ -33,7 +32,7 @@
             position: relative;
         }
 
-        html{font-size: 18px;}
+        html{font-size: 20px;}
 
         header {
             width: 100%; height: 15vh;
@@ -42,38 +41,70 @@
 
         main {
             width: 100%; height: 75vh;
-            background-color: #E6E6E6;
+            background-color: #206a47;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .spot {
-            width: 800px; height: 100%;
+            width: 1000px; height: 100%;
             background-color: white;
-            padding-top: 50px;
+            padding-top: 100px;
             text-align: center;
         }
 
-        /*질문, 번호*/
-        .question_box {
-            margin: 10px;
+        /*첫번째 페이지*/
+        /*큰 제목*/
+        .start > h1{
+            width: 87%;
+            padding-bottom: 20px;
+            margin: 0 auto 20px auto;
+            border-bottom: 1px solid black;
+            font-size: 28px;
+        }
+
+        /*첫번째 메세지*/
+        .start #main_message1 {padding-bottom: 10px;}
+        .start #main_message2 {margin-bottom: 50px;}
+        .start #main_message3 {font-size: 14px; margin-top: 15px;}
+
+        /*검사 시작 버튼*/
+        .start_button {
+            background-color: #7d9d7d;
+            border-radius: 30px;
+            padding: 10px 50px; margin: 100px;
+            color: white;
+        }
+
+        .start_button:hover {
+            background-color: #547054;
 
         }
 
-        .question_box > p {
-            padding: 10px 0 20px 0;
-            /*background-color: #7d9d7d;*/
+        /* 검사 진행도 게이지 바*/
+        #progress-bar {
+            width: 600px; height: 20px;
+            background-color: lightgray;
+            margin: 20px auto;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .animate-question {
-            animation: fade-in 0.5s ease-in-out;
+        #progress {
+            width: 0; height: 100%;
+            background-color: green;
+            position: absolute;
+            transition: all .5s;
         }
+
+        /*검사 질문*/
+        .question_box { margin: 10px; }
+        .question_box > p { padding: 10px 0 20px 0; }
 
         /*라디오 버튼 none*/
-        .choice_box input[id*="radio"] {
-            display: none;
-        }
+        .choice_box input[id*="radio"] { display: none; }
 
         /*ox*/
         .choice_box {
@@ -96,6 +127,39 @@
             color: #206a47;
         }
 
+        .inspection {
+            display: none;
+        }
+
+        /*검사 결과*/
+        .result {display: none}
+
+        .result > h1{
+            width: 87%;
+            padding-bottom: 20px;
+            margin: 0 auto 20px auto;
+            border-bottom: 1px solid black;
+            font-size: 28px;
+        }
+
+        .result #score {
+            font-size: 100px;
+            color: #1c6726;
+        }
+
+        .result .by_score3 {
+            margin-bottom: 20px;
+
+        }
+
+        /*결과 메세제*/
+        .result #result_message {
+            width: 80%;
+            font-size: 18px;
+            margin: 0 auto;
+            letter-spacing: 1.5px
+        }
+
         footer {
             width: 100%; height: 10vh;
         }
@@ -108,8 +172,28 @@
 
     <main>
         <section class="spot">
-            <form action="" method="get">
-                <!--                질문 번호-->
+<!--        시작화면-->
+            <section class="start">
+                <img src="img/sad_icon.png">
+                <h1>우울증 자가진단</h1>
+
+                <p id="main_message1"><a>정상수</a>님, 어서오세요.</p>
+                <p id="main_message2">이 검사의 기준은 <b style="color: red">최근 2주 동안</b> 느꼈던
+                    <br> 감정에 대한 질문들 입니다.
+                    <br> 해당하는 문항에 대해 <b>○</b>를 선택해주세요.
+                </p>
+
+                <a href="#" class="start_button"><b>검사 시작</b></a>
+                <p id="main_message3">총 15문항</p>
+            </section>
+
+<!--            검사화면-->
+            <form action="/question/{member}" method="get" class="inspection">
+                <!-- 게이지 바 (진행도)-->
+                <div id="progress-bar">
+                    <div id="progress"></div>
+                </div>
+                <!-- 질문 번호-->
                 <div class="question_box">
                     <h1>1</h1>
                     <p>슬픈 기분이 지속되었나요?</p>
@@ -120,6 +204,19 @@
                     <label><input type="radio" name="radio" id="radio_x" value="x">X</label>
                 </div>
             </form>
+
+<!--            결과화면-->
+            <section class="result">
+                <img src="img/Check_ion.png">
+                <h1>우울증 자가진단 결과</h1>
+
+                <p><b id="score">0</b>점</p>
+                <p class="by_score1">0 ~ 5점 : 정상적임</p>
+                <p class="by_score2">6 ~ 10점 : 우울함</p>
+                <p class="by_score3">11 ~ 15점 : 매우 우울함</p>
+
+                <p id="result_message"></p>
+            </section>
         </section>
     </main>
 
@@ -133,7 +230,9 @@
             let quesionNum = $(".question_box > h1"); // 질문 번호
             let index = 0; // questions 인덱스
             let score = 0; // 우울증 점수
+            let progress = 0; // 게이지 퍼센트
 
+            // 지문들
             const questions = [
                 "슬픈 기분이 지속되었나요?",
                 "흥미나 즐거움을 느끼는 데에 어려움이 있었나요?",
@@ -141,7 +240,7 @@
                 "에너지나 활동 수준이 변화되었나요?",
                 "무기력하거나 피곤함을 느꼈나요?",
                 "식욕 변화나 체중 변화가 있었나요?",
-                "수면에 어려움이 있었나요? 혹은 지나치게 잠에 들거나 자고 싶지 않을 때가 있었나요?",
+                "잠이 오지 않거나 지나치게 자는 등 수면에 어려움이 있었나요?",
                 "집중력이나 결정력에 어려움이 있었나요?",
                 "생각하거나 움직이는 속도가 느려진 것 같았나요?",
                 "자살이나 죽음에 대한 생각이 있었나요?",
@@ -151,24 +250,78 @@
                 "일상적인 활동에 대한 에너지가 없거나 부족했나요?",
                 "자꾸 눈물이 나나요?"
             ];
+            // 결과 메세지
+            let resultMessage = [
+                "현재로서 우울증 증상이 나타나지 않는 모습입니다. 이는 기쁘게 받아들일 수 있는 좋은 소식입니다. 그러나 계속해서 자신의 감정과 상태를 주시하며, 만약 어려움이나 불안감이 다시 나타난다면 도움을 받을 수 있는 방법을 알아두는 것이 좋습니다.",
+                "조금 어려운 시기를 겪고 계신 것 같습니다. 이런 우울한 감정을 느끼는 것은 일상에서 일어날 수 있는 일입니다. 하지만 우울함이 지속되거나 심화된다면, 가까운 사람들이나 전문가와 대화하고 도움을 받을 수 있는 조건을 고려해보세요. 당신은 자신을 돌보고 좋은 치료를 받을 자격이 있습니다.",
+                "현재로서 심각한 우울증 증상을 경험하고 계신 것 같습니다. 이런 어려움은 혼자서 처리하기에는 너무 많은 부담이 될 수 있습니다. 그러므로 가능한 빠른 시일 내에 전문가와의 상담을 고려해보세요. 전문가는 당신을 이해하고 좋은 치료 방법을 제공해줄 수 있습니다. 기억해주세요, 당신은 이 어려움을 극복할 수 있는 힘을 가지고 있습니다."
+            ];
 
-            $("input[type=radio]").on("click", function() {
-                index += 1;
-                // O를 체크하면 점수 추가
-                if($("#radio_o").is(":checked")) {
-                    score += 1;
+            function handleRadioClick() {
+                $("input[type=radio]").on("click", function() {
+                    index += 1;
+                    // O를 체크하면 점수 추가
+                    if($("#radio_o").is(":checked"))
+                        score += 1;
+
+                    // 질문 출력문
+                    if (index < questions.length) {
+                        quesionNum.text(index+1);
+                        questionsContainer.text(questions[index]);
+                    } else
+                        showTestResultPage();
+
+                    // 게이지 바 증가
+                    if (progress < 150) {
+                        progress += 7.2;
+                        $("#progress").css({"width" : progress + "%"});
+                    }
+
+                    // 질문 애니메이션으로 나타내기
+                    $(".question_box:not(:animated)").hide().fadeIn(800, "linear");
+                });
+            }
+
+            // 검사 시작 버튼, 검사 페이지로 넘어가는 함수
+            function startInspection() {
+                $(".start_button").click(function () {
+                    $(".start").css({"display" : "none"});
+                    $(".inspection").css({"display": "block"});
+                });
+            }
+
+            // 검사 종료 후, 결과 페이지로 넘어가는 함수
+            function showTestResultPage() {
+                $("#score").text(score); // 점수 텍스트
+
+                // 점수 보이기, 해당 점수에 굵게
+                if (score <= 5) {
+                    $("#result_message").text(resultMessage[0]);
+                    $(".by_score1").css({"font-weight" : "800"});
+                } else if (score <= 10) {
+                    $("#result_message").text(resultMessage[1]);
+                    $(".by_score2").css({"font-weight" : "800"});
+                } else {
+                    $("#result_message").text(resultMessage[2]);
+                    $(".by_score3").css({"font-weight" : "800"});
                 }
 
-                // 질문 출력문
-                if (index < questions.length) {
-                    quesionNum.text(index+1);
-                    questionsContainer.text(questions[index]);
-                } else
-                    alert(score)
+                // 화면 나타내기
+                $(".inspection").css({"display" : "none"});
+                $(".result").css({"display": "block"}).hide().fadeIn(2000, "swing");
 
-                $(".question_box:not(:animated)").hide().fadeIn(500, "linear");
-            });
+                $("main").animate({ backgroundColor: "#7d9d7d" }, 5000);
 
+                // 애니메이션으로 나타내기
+                // $("main").animate({backgroundColor:"#7d9d7d"}, 500, function () {
+                //     $(".inspection").css({"display" : "none"});
+                //     $(".result").css({"display": "block"});
+                // });
+            }
+
+            // Main
+            handleRadioClick();
+            startInspection();
         });
     </script>
 </body>
