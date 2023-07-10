@@ -35,7 +35,7 @@
         html{font-size: 20px;}
 
         header {
-            width: 100%; height: 15vh;
+            width: 100%; height: 12vh;
             background: #e6e6e6;
         }
 
@@ -47,10 +47,11 @@
             align-items: center;
         }
 
+        /*흰색 배경*/
         .spot {
-            width: 1000px; height: 100%;
+            width: 50rem; height: 100%;
             background-color: white;
-            padding-top: 100px;
+            padding-top: 4.2rem;
             text-align: center;
         }
 
@@ -58,22 +59,22 @@
         /*큰 제목*/
         .start > h1{
             width: 87%;
-            padding-bottom: 20px;
-            margin: 0 auto 20px auto;
+            padding-bottom: 1rem;
+            margin: 0 auto 2rem auto;
             border-bottom: 1px solid black;
-            font-size: 28px;
+            font-size: 1.4rem;
         }
 
         /*첫번째 메세지*/
-        .start #main_message1 {padding-bottom: 10px;}
-        .start #main_message2 {margin-bottom: 50px;}
-        .start #main_message3 {font-size: 14px; margin-top: 15px;}
+        .start #main_message1 {padding-bottom: .5rem;}
+        .start #main_message2 {margin-bottom: 2.5rem;}
+        .start #main_message3 {font-size: .7rem; margin-top: .75rem;}
 
         /*검사 시작 버튼*/
         .start_button {
             background-color: #7d9d7d;
             border-radius: 30px;
-            padding: 10px 50px; margin: 100px;
+            padding: .5rem 2.5rem; margin: 5rem;
             color: white;
         }
 
@@ -84,9 +85,9 @@
 
         /* 검사 진행도 게이지 바*/
         #progress-bar {
-            width: 600px; height: 20px;
+            width: 70%; height: 1rem;
             background-color: lightgray;
-            margin: 20px auto;
+            margin: 1rem auto;
             border-radius: 30px;
             position: relative;
             overflow: hidden;
@@ -94,22 +95,22 @@
 
         #progress {
             width: 0; height: 100%;
-            background-color: green;
+            background-color: #7d9d7d;
             position: absolute;
             transition: all .5s;
         }
 
         /*검사 질문*/
-        .question_box { margin: 10px; }
-        .question_box > p { padding: 10px 0 20px 0; }
+        .question_box { margin: .5rem; }
+        .question_box > p { padding: .5rem 0 1rem 0; }
 
         /*라디오 버튼 none*/
         .choice_box input[id*="radio"] { display: none; }
 
         /*ox*/
         .choice_box {
-            font-size: 110px;
-            margin: 0 50px 0 50px;
+            font-size: 5.5rem;
+            margin: 0 2.5rem;
             border-top: 1px solid black;
             /*드래그 방지*/
             -webkit-user-select:none;
@@ -119,7 +120,7 @@
         }
 
         .choice_box label {
-            padding: 20px;
+            padding: 1rem;
             cursor: pointer;
         }
 
@@ -132,36 +133,57 @@
         }
 
         /*검사 결과*/
-        .result {display: none}
+        .result {
+            display: none;
+        }
 
         .result > h1{
             width: 87%;
-            padding-bottom: 20px;
-            margin: 0 auto 20px auto;
+            padding-bottom: 1rem;
+            margin: 0 auto;
             border-bottom: 1px solid black;
-            font-size: 28px;
+            font-size: 1.3rem;
         }
 
+        /*점수*/
         .result #score {
-            font-size: 100px;
+            font-size: 4.8rem;
             color: #1c6726;
         }
 
         .result .by_score3 {
-            margin-bottom: 20px;
-
+            margin-bottom: 1rem;
         }
 
         /*결과 메세제*/
         .result #result_message {
-            width: 80%;
-            font-size: 18px;
-            margin: 0 auto;
-            letter-spacing: 1.5px
+            width: 85%;
+            font-size: .9rem;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 0 auto .8rem auto;
+            letter-spacing: 1.5px;
+            background-color: #e6e6e6;
         }
 
+        /*다시 검사하기 버튼*/
+        .restart_button {
+            color: black; padding: 3px;
+            font-size: .7rem;
+            text-decoration: underline;
+        }
+
+        .restart_button:hover {
+            color: red;
+        }
+
+        /*푸터*/
         footer {
             width: 100%; height: 10vh;
+        }
+
+        .start {
+            /*display: none;*/
         }
     </style>
 </head>
@@ -195,8 +217,8 @@
                 </div>
                 <!-- 질문 번호-->
                 <div class="question_box">
-                    <h1>1</h1>
-                    <p>슬픈 기분이 지속되었나요?</p>
+                    <h1></h1>
+                    <p></p>
                 </div>
                 <div class="choice_box">
                     <!--                    ox 선택-->
@@ -216,6 +238,8 @@
                 <p class="by_score3">11 ~ 15점 : 매우 우울함</p>
 
                 <p id="result_message"></p>
+
+                <a href="#" class="restart_button">다시 검사하기</a>
             </section>
         </section>
     </main>
@@ -230,9 +254,9 @@
             let quesionNum = $(".question_box > h1"); // 질문 번호
             let index = 0; // questions 인덱스
             let score = 0; // 우울증 점수
-            let progress = 0; // 게이지 퍼센트
+            let progress = 0; // 진행도 게이지 퍼센트
 
-            // 지문들
+            // 질문들
             const questions = [
                 "슬픈 기분이 지속되었나요?",
                 "흥미나 즐거움을 느끼는 데에 어려움이 있었나요?",
@@ -251,12 +275,26 @@
                 "자꾸 눈물이 나나요?"
             ];
             // 결과 메세지
-            let resultMessage = [
-                "현재로서 우울증 증상이 나타나지 않는 모습입니다. 이는 기쁘게 받아들일 수 있는 좋은 소식입니다. 그러나 계속해서 자신의 감정과 상태를 주시하며, 만약 어려움이나 불안감이 다시 나타난다면 도움을 받을 수 있는 방법을 알아두는 것이 좋습니다.",
-                "조금 어려운 시기를 겪고 계신 것 같습니다. 이런 우울한 감정을 느끼는 것은 일상에서 일어날 수 있는 일입니다. 하지만 우울함이 지속되거나 심화된다면, 가까운 사람들이나 전문가와 대화하고 도움을 받을 수 있는 조건을 고려해보세요. 당신은 자신을 돌보고 좋은 치료를 받을 자격이 있습니다.",
-                "현재로서 심각한 우울증 증상을 경험하고 계신 것 같습니다. 이런 어려움은 혼자서 처리하기에는 너무 많은 부담이 될 수 있습니다. 그러므로 가능한 빠른 시일 내에 전문가와의 상담을 고려해보세요. 전문가는 당신을 이해하고 좋은 치료 방법을 제공해줄 수 있습니다. 기억해주세요, 당신은 이 어려움을 극복할 수 있는 힘을 가지고 있습니다."
+            const resultMessage = [
+                "현재로서 우울증 증상이 나타나지 않습니다. 기쁘게 받아들일 수 있는 좋은 소식이지만, 계속해서 자신의 감정과 상태를 주시하시기 바랍니다. 만약 어려움이나 불안감이 나타난다면 도움을 받을 수 있는 방법을 알아두는 것이 좋습니다.",
+                "조금 어려운 시기를 겪고 계신 것 같습니다. 이런 우울한 감정을 느끼는 것은 일상에서 일어날 수 있는 일입니다. 하지만 우울함이 지속되거나 심화된다면, 가까운 사람들이나 전문가에게 도움을 받아 보세요. 당신은 자신을 돌보고 좋은 치료를 받을 자격이 있습니다.",
+                "심각한 우울증 증상을 경험하고 계신 것 같습니다. 이런 어려움은 혼자서 처리하기에는 너무 많은 부담이 될 수 있습니다. 그러므로 가능한 빠른 시일 내에 전문가와의 상담을 하세요. 전문가는 좋은 치료 방법을 제공해줄 수 있습니다. 당신은 이 어려움을 극복할 수 있는 힘을 가지고 있습니다."
             ];
 
+            // 검사 페이지 : 질문 번호, 질문 내용 넘어가기 함수
+            function displayQuestion() {
+                if (index < questions.length) {
+                    quesionNum.text(index+1);
+                    questionsContainer.text(questions[index]);
+                } else {
+                    showTestResultPage();
+                }
+                // 질문 애니메이션으로 나타내기
+                $(".question_box:not(:animated)").hide().fadeIn(800, "linear");
+            }
+
+
+            // 검사 페이지 : 점수 계산, 진행도 바
             function handleRadioClick() {
                 $("input[type=radio]").on("click", function() {
                     index += 1;
@@ -264,33 +302,27 @@
                     if($("#radio_o").is(":checked"))
                         score += 1;
 
-                    // 질문 출력문
-                    if (index < questions.length) {
-                        quesionNum.text(index+1);
-                        questionsContainer.text(questions[index]);
-                    } else
-                        showTestResultPage();
-
-                    // 게이지 바 증가
+                    // 진행도 바 증가
                     if (progress < 150) {
                         progress += 7.2;
                         $("#progress").css({"width" : progress + "%"});
                     }
-
-                    // 질문 애니메이션으로 나타내기
-                    $(".question_box:not(:animated)").hide().fadeIn(800, "linear");
+                    displayQuestion(); // 질문 넘기기
                 });
             }
 
-            // 검사 시작 버튼, 검사 페이지로 넘어가는 함수
+
+            // 검사 페이지 : 검사 시작 버튼, 검사 페이지로 넘어가는 함수
             function startInspection() {
                 $(".start_button").click(function () {
                     $(".start").css({"display" : "none"});
                     $(".inspection").css({"display": "block"});
+                    displayQuestion(); // 질문 넘기기
                 });
             }
 
-            // 검사 종료 후, 결과 페이지로 넘어가는 함수
+
+            // 결과 페이지 : 검사 종료 후, 결과 페이지로 넘어가는 함수
             function showTestResultPage() {
                 $("#score").text(score); // 점수 텍스트
 
@@ -308,20 +340,37 @@
 
                 // 화면 나타내기
                 $(".inspection").css({"display" : "none"});
-                $(".result").css({"display": "block"}).hide().fadeIn(2000, "swing");
+                $(".result").css({"display": "block"}).hide().fadeIn(2100, "swing");
 
-                $("main").animate({ backgroundColor: "#7d9d7d" }, 5000);
-
-                // 애니메이션으로 나타내기
-                // $("main").animate({backgroundColor:"#7d9d7d"}, 500, function () {
-                //     $(".inspection").css({"display" : "none"});
-                //     $(".result").css({"display": "block"});
-                // });
+                // $(".spot").animate({ backgroundColor: "#3b3b3b" }, 5000);
             }
 
+
+            // 다시 검사 버튼, 메인 페이지로 넘어가는 함수
+            function goBackToMainPage() {
+                $(".restart_button").click(function () {
+                    $(".result").css({"display" : "none"});
+                    $(".start").css({"display": "block"});
+                    initialize();
+                });
+            }
+
+
+            // 초기화 함수
+            function initialize() {
+                index = 0; score = 0; progress = 0;
+                $("#progress").css({"width" : 0 + "%"}); // 게이지바 초기화
+
+                for (let i = 1; i <= 3; i++) { // 결과 증상 텍스트 굵기
+                    $(".by_score" + i).css({"font-weight" : "normal"});
+                }
+            }
+
+
             // Main
-            handleRadioClick();
-            startInspection();
+            handleRadioClick(); // 검사 페이지
+            startInspection(); // 결과 페이지
+            goBackToMainPage(); // 다시 검사
         });
     </script>
 </body>
